@@ -1,0 +1,55 @@
+# brand.aiqadam.org — robots.txt
+# Open to all crawlers, including AI training and retrieval bots.
+# The brand site is intentionally public: chapters, partners, search
+# engines, and AI assistants should all be able to read and cite it.
+
+User-agent: *
+Allow: /
+
+# Major AI / LLM crawlers — explicit allows so policy is unambiguous.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+Sitemap: https://brand.aiqadam.org/sitemap.xml

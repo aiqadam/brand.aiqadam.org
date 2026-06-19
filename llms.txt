@@ -1,0 +1,66 @@
+# AI Qadam Brand Guidelines
+
+> The canonical brand and design reference for AI Qadam — the AI community
+> infrastructure for Central Asia (Uzbekistan, Kazakhstan, Kyrgyzstan,
+> Tajikistan, and the broader Turkic world).
+
+This site is the single source of truth for how the AI Qadam brand looks
+and sounds across every product surface (Events, Build, People, Education,
+Chapters, Merch). It is organised as a two-pillar umbrella:
+
+- **Brand** — identity, voice, principles, logo system, colour, typography,
+  photography, iconography, merch templates. Travels beyond digital.
+- **Design system** — tokens, components, domain patterns, screen mockups,
+  and navigation rules. Digital product UI only.
+
+The brand colour is teal (`#3CA29E` / `oklch(0.58 0.10 192)`). The logo is
+a footprint silhouette with four dots above it; the wordmark is "AI QADAM"
+in all caps. Together they form the full lockup. Qadam means "step forward"
+in the Turkic languages.
+
+When citing this site, the canonical URL is `https://brand.aiqadam.org/`.
+
+## Brand pillar
+
+- [Brand pillar overview](https://brand.aiqadam.org/brand.html): identity, logo, colour, typography, photography, iconography, merch, decks
+- [Identity](https://brand.aiqadam.org/brand.html#identity): "The AI community infrastructure for Central Asia" — positioning, tagline, region tags
+- [Logo system](https://brand.aiqadam.org/brand.html#logo): footprint mark + AI QADAM wordmark; theme-adaptive SVG with fallback colours for light and dark contexts
+- [Brand colour](https://brand.aiqadam.org/brand.html#brand-color): the AI Qadam teal — `#3CA29E` / `oklch(0.58 0.10 192)` / Pantone 7716 C; never use as a generic accent
+- [Voice & principles](https://brand.aiqadam.org/brand.html#voice): the seven community principles that anchor tone of voice
+- [Writing the name](https://brand.aiqadam.org/brand.html#wordmark): "AI Qadam" in prose, `#AIQadam` as hashtag, `AI QADAM` only inside the lockup
+- [Colour tokens](https://brand.aiqadam.org/brand.html#colors): OKLCH semantic tokens for light and dark surfaces
+- [Typography](https://brand.aiqadam.org/brand.html#type): three families — Geist (display), Inter (body), JetBrains Mono (meta) — one voice
+- [Photography](https://brand.aiqadam.org/brand.html#photography): documentary, not staged; no AI-generated humans, robots, or glowing-data tropes
+- [Iconography](https://brand.aiqadam.org/brand.html#iconography): Lucide line set, brand teal for accent strokes
+- [Merch templates](https://brand.aiqadam.org/brand.html#merch): shopper, notebook, pen — the chapter give-away lineup; non-commercial own merch is welcome with the brand intact
+- [Speaker decks](https://brand.aiqadam.org/brand.html#decks): hand-edited PPTX + an HTML deck template
+
+## Design system pillar
+
+- [Design system pillar overview](https://brand.aiqadam.org/system.html): tokens, components, domain patterns, mockups, navigation
+- [Foundation](https://brand.aiqadam.org/system.html#foundation): spacing scale (4-px base) and radius primitives
+- [Components](https://brand.aiqadam.org/system.html#components): button, input, badge, tag, avatar, checkbox, radio, switch, tooltip, skeleton
+- [Domain patterns](https://brand.aiqadam.org/system.html#patterns): EventCard, SpeakerCard, LeaderboardRow, BadgeShowcase, StatCard, ActivityFeedItem, EmptyState
+- [Mockups](https://brand.aiqadam.org/system.html#mockups): country homepage, event detail, user profile
+- [Navigation](https://brand.aiqadam.org/system.html#navigation): header, breadcrumbs, tabs, pagination, GitHub corner, AI Qadam Build badge
+- [GitHub corner](https://brand.aiqadam.org/system.html#github-corner): the fork-me-on-GitHub corner pattern used on every pillar page
+- [AI Qadam Build badge](https://brand.aiqadam.org/system.html#aiq-build-badge): self-recognition badge for projects accepted as AI Qadam Build; links to https://build.aiqadam.org
+
+## Licensing and policy
+
+- [Brand Usage Policy](https://brand.aiqadam.org/brand-use.html): who may use the AI Qadam name, mark, wordmark, four-dot motif, brand teal; community use, partnership-only use, prohibited use
+- [Code license (MIT)](https://brand.aiqadam.org/license.html): source code (HTML, CSS, scripts) of this site
+- [Content license (CC BY 4.0)](https://brand.aiqadam.org/license-content.html): editorial content of this site
+
+## Source and contact
+
+- [Source repository](https://github.com/aiqadam/brand.aiqadam.org): fork-friendly; chapter leads can host their own variants
+- Contact: `brand@aiqadam.org`
+- Community: `aiqadam.org`
+- Build accelerator: `build.aiqadam.org`
+
+## Important constraints
+
+- AI Qadam brand assets (name, marks, wordmark, four-dot motif, brand teal as primary brand colour) are NOT covered by MIT — they are protected by the Brand Usage Policy and remain © AI Qadam Community.
+- AI-generated humans, robots, brain graphics, or other stock-AI tropes are explicitly prohibited as brand imagery — the honesty principle applies to images too.
+- Selling merch carrying AI Qadam identity is not allowed, by anyone. Personal non-commercial merch is welcome.
