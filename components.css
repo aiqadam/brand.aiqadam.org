@@ -99,6 +99,36 @@
 .brand-logo.md { width: 160px; }
 .brand-logo.lg { width: 240px; }
 .brand-logo.xl { width: 360px; }
+
+/* ---------- Download link ---------- */
+/* Small mono pill for downloadable assets — sits next to a .codechip
+   labelling the file. Pair with the download attribute on the <a>. */
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--foreground);
+  background: var(--card);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.download-link:hover,
+.download-link:focus-visible {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+.download-link svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
 .app-nav {
   display: flex;
   align-items: center;

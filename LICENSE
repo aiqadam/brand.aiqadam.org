@@ -25,7 +25,7 @@ SOFTWARE.
 Scope of this license
 ─────────────────────
 This MIT license covers ONLY the source code in this repository:
-  * CSS files (tokens.css, components.css, docs.css, portal.css)
+  * CSS files (tokens.css, components.css, docs.css)
   * HTML markup and JavaScript in *.html
   * Build / tooling scripts
 

@@ -1,18 +1,6 @@
 # Build scripts
 
-Two helpers; both safe to re-run idempotently.
-
-## `split-docs.py`
-
-Reconstructs `index.html`, `brand.html`, `system.html`, `products.html`
-from the legacy single-page source. Currently kept for reference and
-in case we ever need to re-extract sections from a fresh `index.html`
-backup — the pillar pages are now hand-edited, so don't run this without
-backing up first.
-
-```sh
-python3 scripts/split-docs.py
-```
+One helper. Safe to re-run idempotently.
 
 ## `render-docs.py`
 

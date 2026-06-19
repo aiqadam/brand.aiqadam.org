@@ -1,7 +1,7 @@
 # AI Qadam — Brand Usage Policy
 
-**Status:** Draft v1 · 2026-06-19 · pending legal review in UZ and KZ.
-**Contact:** binali.rustamov@aiqadam.org
+**Version:** v1 · 2026-06-19
+**Contact:** brand@aiqadam.org
 
 ---
 
@@ -63,6 +63,12 @@ follow the visual rules in the guidelines:
   representation.
 - **Educational use** in non-commercial talks, classes, and university
   curricula, with attribution.
+- **Your own non-commercial merch** — a personal tote with the mark, a
+  notebook for your study group, stickers for your meetup, a t-shirt for
+  yourself. We don't restrict the format; we only ask that the identity
+  stays intact (use the SVG from `/brand/`; don't redraw, recolour, or
+  AI-generate variants). Paying a vendor for a one-off is fine — selling
+  the result isn't (see *Not allowed* below).
 - **Open-source projects recognised as part of AI Qadam Build.** Recognition
   is granted by community leads (the council of country leads + Global
   Board). Recognised projects may carry the AI Qadam Build mark and refer
@@ -102,8 +108,9 @@ The following uses are not permitted and will be challenged:
   partners contribute to the community, they do not acquire commercial
   rights to the marks, wordmark, or brand teal.
 - **Selling merch carrying AI Qadam identity** — by anyone, including
-  chapters, partners, and third-party vendors. Merch exists as a community
-  contribution distributed free at events, not as a retail product.
+  chapters, partners, third-party vendors, or individuals. Whether
+  produced as a chapter give-away or as a personal one-off, items
+  carrying the mark, wordmark, or brand teal are not for sale.
 - **Self-declaring a project as "AI Qadam Build" or "an AI Qadam project"**
   without recognition from community leads.
 - **Implying endorsement** by AI Qadam, the Global Board, any chapter, or
@@ -126,7 +133,7 @@ The following uses are not permitted and will be challenged:
 ## Enforcement
 
 If you see a use that violates this policy, email
-`binali.rustamov@aiqadam.org` with a link and a short note. The Global Board
+`brand@aiqadam.org` with a link and a short note. The Global Board
 reviews complaints and responds in writing. We prefer a private conversation
 first, a public correction next, and legal action only when neither has
 worked.
@@ -141,8 +148,3 @@ same-week yes.
 This policy is community-stewarded and may be updated by consent of the
 Global Board. Updates are versioned at the top of the file. The
 canonical copy lives at `https://brand.aiqadam.org/BRAND-USE.md`.
-
----
-
-*Draft v1 — pending legal review. Final binding text will be the version
-posted at the canonical URL above with status "v1 — final".*

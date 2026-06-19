@@ -1,8 +1,12 @@
 /* =========================================================
    AI Qadam Brand Guidelines — page chrome
-   Shared by index.html (landing), brand.html, system.html, products.html.
+   Shared by index.html (landing), brand.html, system.html.
    Component & token rules live in components.css and tokens.css.
    ========================================================= */
+
+/* Sticky header is 56px; offset anchor jumps so headings clear it. */
+html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 /* ---------- TOC layout ---------- */
 .toc-layout {
@@ -42,6 +46,64 @@
 .toc a:hover { color: var(--foreground); border-left-color: color-mix(in oklch, var(--primary) 60%, transparent); }
 .toc a.section { color: var(--foreground); font-weight: 500; margin-top: 12px; }
 .toc a.sub { padding-left: 24px; font-size: 12px; }
+.toc a.active { color: var(--primary); border-left-color: var(--primary); }
+.toc a.sub.active { font-weight: 500; }
+
+/* ---------- Page overview cards (above the fold map) ---------- */
+.page-overview {
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--border);
+}
+.page-overview-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+  margin: 0 0 20px 0;
+}
+.page-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.page-overview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  text-decoration: none;
+  transition: border-color 150ms var(--ease-out), background 150ms var(--ease-out), transform 150ms var(--ease-out);
+}
+.page-overview-card:hover {
+  border-color: color-mix(in oklch, var(--primary) 50%, var(--border));
+  background: color-mix(in oklch, var(--card) 92%, var(--primary));
+  transform: translateY(-1px);
+}
+.page-overview-card .num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+}
+.page-overview-card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--foreground);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.page-overview-card p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  margin: 0;
+}
 
 /* ---------- Hero ---------- */
 .doc-hero { padding: 64px 0 32px; }
@@ -439,6 +501,7 @@
   letter-spacing: -0.01em;
 }
 .cell-desc { font-size: 13px; color: var(--muted-foreground); margin: 0 0 8px 0; line-height: 1.55; }
+.cell-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
 .logo-sizes {
   display: flex;
@@ -517,32 +580,7 @@
   letter-spacing: 0;
 }
 
-/* ---------- Photography + Iconography + Merch stubs ---------- */
-.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-.photo-cell {
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background:
-    linear-gradient(135deg,
-      color-mix(in oklch, var(--primary) 18%, var(--card)),
-      var(--card));
-  position: relative;
-  overflow: hidden;
-}
-.photo-cell .photo-label {
-  position: absolute;
-  bottom: 12px;
-  left: 14px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted-foreground);
-  background: color-mix(in oklch, var(--background) 80%, transparent);
-  padding: 4px 8px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-}
-
+/* ---------- Iconography + Merch stubs ---------- */
 .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
 .icon-cell {
   border: 1px solid var(--border);
@@ -612,6 +650,76 @@
   letter-spacing: 0.08em;
   color: var(--primary);
 }
+.stream-card .merch-photo {
+  display: block;
+  width: calc(100% + 48px);
+  height: 220px;
+  object-fit: contain;
+  background: color-mix(in oklch, var(--background) 40%, var(--card));
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  margin: -24px -24px 4px;
+  cursor: zoom-in;
+  transition: filter 150ms var(--ease-out);
+}
+.stream-card .merch-photo:hover { filter: brightness(1.04); }
+
+/* ---------- Lightbox modal ---------- */
+dialog.lightbox {
+  border: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  color: var(--foreground);
+  overflow: hidden;
+}
+dialog.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+dialog.lightbox::backdrop {
+  background: color-mix(in oklch, var(--background) 70%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+dialog.lightbox .lightbox-image {
+  display: block;
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: 0 24px 64px color-mix(in oklch, var(--background) 30%, #000);
+  cursor: zoom-out;
+}
+dialog.lightbox .lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--card) 85%, transparent);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: border-color 150ms var(--ease-out), color 150ms var(--ease-out);
+}
+dialog.lightbox .lightbox-close:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+dialog.lightbox .lightbox-close svg { width: 18px; height: 18px; }
 
 /* =========================================================
    Landing — umbrella pillar CTAs

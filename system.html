@@ -26,7 +26,6 @@
       <a href="index.html">Overview</a>
       <a href="brand.html">Brand</a>
       <a href="system.html" class="active">Design system</a>
-      <a href="products.html">Products</a>
     </nav>
     <div class="header-right">
       <button class="btn btn-ghost btn-icon" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
@@ -45,8 +44,40 @@
     <div class="meta-row">
       <span class="item"><a href="index.html" style="color: var(--primary);">← Guidelines overview</a></span>
       <span class="item">Pillar 02</span>
+      <span class="item" data-page-stats>Loading…</span>
       <span class="item">Tailwind 4 + shadcn/ui</span>
       <span class="item">OKLCH color space</span>
+    </div>
+  </section>
+
+  <section class="page-overview" aria-label="Sections in this pillar">
+    <p class="page-overview-label">What's in this pillar</p>
+    <div class="page-overview-grid">
+      <a href="#foundation" class="page-overview-card">
+        <span class="num">01</span>
+        <h3>Foundation</h3>
+        <p>Spacing scale and radius — the two primitives only UI uses.</p>
+      </a>
+      <a href="#components" class="page-overview-card">
+        <span class="num">02</span>
+        <h3>Components</h3>
+        <p>Buttons, inputs, badges, avatars, controls, tooltip, skeleton.</p>
+      </a>
+      <a href="#patterns" class="page-overview-card">
+        <span class="num">03</span>
+        <h3>Domain patterns</h3>
+        <p>EventCard, SpeakerCard, leaderboard, badges, stats, feed, empty.</p>
+      </a>
+      <a href="#mockups" class="page-overview-card">
+        <span class="num">04</span>
+        <h3>Mockups</h3>
+        <p>Country homepage, event detail, user profile — full layouts.</p>
+      </a>
+      <a href="#navigation" class="page-overview-card">
+        <span class="num">05</span>
+        <h3>Navigation</h3>
+        <p>Header, breadcrumbs, tabs, pagination.</p>
+      </a>
     </div>
   </section>
 
@@ -1464,7 +1495,7 @@
       &nbsp;·&nbsp;
       <a href="license-content.html">Content · CC BY 4.0</a>
     </div>
-    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:binali.rustamov@aiqadam.org">binali.rustamov@aiqadam.org</a></div>
+    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:brand@aiqadam.org">brand@aiqadam.org</a></div>
   </div>
 </footer>
 <script>
@@ -1492,6 +1523,53 @@
     const v = getComputedStyle(root).getPropertyValue(t).trim();
     if (v) el.textContent = v;
   });
+
+  // Page stats: section count + estimated read time ----------------------
+  (function pageStats(){
+    const slot = document.querySelector('[data-page-stats]');
+    if (!slot) return;
+    const main = document.querySelector('.toc-layout main') || document.body;
+    const sections = main.querySelectorAll('.docs-section').length;
+    const text = (main.innerText || '').trim();
+    const words = text ? text.split(/\s+/).length : 0;
+    const minutes = Math.max(1, Math.round(words / 200));
+    slot.textContent = `${sections} sections · ~${minutes} min read`;
+  })();
+
+  // TOC scrollspy: active = last section whose top has scrolled above the
+  // offset line. Robust against short sections (no "lag by one" cases).
+  (function scrollspy(){
+    const tocLinks = new Map();
+    document.querySelectorAll('.toc a[href^="#"]').forEach(a => {
+      tocLinks.set(a.getAttribute('href').slice(1), a);
+    });
+    if (!tocLinks.size) return;
+    const targets = [];
+    tocLinks.forEach((link, id) => {
+      const el = document.getElementById(id);
+      if (el) targets.push({ id, el, link });
+    });
+    if (!targets.length) return;
+    const OFFSET = 100;
+    let frame = 0;
+    function update() {
+      frame = 0;
+      let activeId = null;
+      for (const t of targets) {
+        if (t.el.getBoundingClientRect().top - OFFSET <= 0) activeId = t.id;
+        else break;
+      }
+      document.querySelectorAll('.toc a.active').forEach(el => el.classList.remove('active'));
+      if (activeId) tocLinks.get(activeId).classList.add('active');
+    }
+    function schedule() {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+  })();
 </script>
 </body>
 </html>

@@ -13,8 +13,6 @@ Static HTML + CSS. No framework, no bundler. Fork it, host it.
   digital.
 - **[Design system](system.html)** — tokens, components, domain patterns,
   screen mockups, navigation rules. Digital product UI only.
-- **[Products](products.html)** — per-product stubs for Events, Build,
-  People, Education, Chapters, Merch.
 
 ## Run it
 
@@ -38,8 +36,7 @@ brand.aiqadam.org   CNAME   <your-host>.pages.dev
 
 - Brand content → `brand.html`
 - Design system content → `system.html`
-- Product stubs → `products.html`
-- Page chrome (header, footer, hero) → duplicated across all four pages
+- Page chrome (header, footer, hero) → duplicated across all pillar pages
   on purpose; if you change one, change all
 - Shared styles → `docs.css`
 - Tokens (colour, type, radius, motion) → `tokens.css`
@@ -47,12 +44,23 @@ brand.aiqadam.org   CNAME   <your-host>.pages.dev
 
 Brand assets (logo SVGs) live under `brand/`. Don't recolour or redraw.
 
+## Speaker deck templates
+
+For anyone speaking at an AI Qadam meetup:
+
+- [`brand/decks/aiqadam-speaker-template.pptx`](brand/decks/aiqadam-speaker-template.pptx) —
+  PPTX skeleton, 16:9, six slides (title · bio · section · content · quote · closing).
+  Hand-edit in PowerPoint or Keynote.
+- [`speaker-deck.html`](speaker-deck.html) — same skeleton as a static HTML deck.
+  Edit `<section data-kind="...">` blocks; keyboard nav with ← → space.
+  AI-friendly: ask Claude/ChatGPT to draft slides directly into it.
+
 ## Legal docs
 
 Three artefacts at the bottom of every page:
 
 - [`LICENSE`](LICENSE) — MIT, code only
-- [`BRAND-USE.md`](BRAND-USE.md) — Brand Usage Policy (draft v1)
+- [`BRAND-USE.md`](BRAND-USE.md) — Brand Usage Policy (v1)
 - [`LICENSE-content`](LICENSE-content) — CC BY 4.0, docs content only
 
 Rendered HTML versions: [`license.html`](license.html),
@@ -77,6 +85,6 @@ python3 -m venv .venv
 ## Contact
 
 For a partnership, a chapter, a brand-use question:
-**binali.rustamov@aiqadam.org**
+**brand@aiqadam.org**
 
 For agent / AI context when editing this repo: see [`AGENTS.md`](AGENTS.md).

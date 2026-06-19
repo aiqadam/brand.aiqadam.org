@@ -26,7 +26,6 @@
       <a href="index.html">Overview</a>
       <a href="brand.html" class="active">Brand</a>
       <a href="system.html">Design system</a>
-      <a href="products.html">Products</a>
     </nav>
     <div class="header-right">
       <button class="btn btn-ghost btn-icon" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
@@ -45,7 +44,49 @@
     <div class="meta-row">
       <span class="item"><a href="index.html" style="color: var(--primary);">← Guidelines overview</a></span>
       <span class="item">Pillar 01</span>
+      <span class="item" data-page-stats>Loading…</span>
       <span class="item">Last updated 2026-06-19</span>
+    </div>
+  </section>
+
+  <section class="page-overview" aria-label="Sections in this pillar">
+    <p class="page-overview-label">What's in this pillar</p>
+    <div class="page-overview-grid">
+      <a href="#brand" class="page-overview-card">
+        <span class="num">01</span>
+        <h3>Brand</h3>
+        <p>Identity, logo, brand colour, voice, principles, writing the name.</p>
+      </a>
+      <a href="#palette" class="page-overview-card">
+        <span class="num">02</span>
+        <h3>Colour palette</h3>
+        <p>OKLCH tokens for every surface — light and dark.</p>
+      </a>
+      <a href="#type" class="page-overview-card">
+        <span class="num">03</span>
+        <h3>Typography</h3>
+        <p>Three families, one voice. Scale and specimens.</p>
+      </a>
+      <a href="#photography" class="page-overview-card">
+        <span class="num">04</span>
+        <h3>Photography</h3>
+        <p>Real rooms, real people. No AI-generated imagery.</p>
+      </a>
+      <a href="#iconography" class="page-overview-card">
+        <span class="num">05</span>
+        <h3>Iconography</h3>
+        <p>Lucide line set, brand teal for accent strokes.</p>
+      </a>
+      <a href="#merch" class="page-overview-card">
+        <span class="num">06</span>
+        <h3>Merch templates</h3>
+        <p>Wearables, swag, print — the rules that travel off-screen.</p>
+      </a>
+      <a href="#decks" class="page-overview-card">
+        <span class="num">07</span>
+        <h3>Speaker decks</h3>
+        <p>Hand-edit HTML template; generated PPTX for download.</p>
+      </a>
     </div>
   </section>
 
@@ -68,6 +109,7 @@
       <a href="#photography" class="section">Photography</a>
       <a href="#iconography" class="section">Iconography</a>
       <a href="#merch" class="section">Merch templates</a>
+      <a href="#decks" class="section">Speaker decks</a>
     </aside>
 
     <main>
@@ -104,7 +146,13 @@
             <div class="logo-cell-meta">
               <p class="cell-name">Mark</p>
               <p class="cell-desc">The footprint on its own. Use for navbars, favicons, app icons, in-product avatars — anywhere small, square, or where the wordmark would just become noise.</p>
-              <code class="codechip">brand/logo-mark.svg</code>
+              <div class="cell-actions">
+                <code class="codechip">brand/logo-mark.svg</code>
+                <a class="download-link" href="brand/logo-mark.svg" download>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                  Download SVG
+                </a>
+              </div>
             </div>
           </div>
           <div class="logo-cell">
@@ -133,9 +181,20 @@
             <div class="logo-cell-meta">
               <p class="cell-name">Full lockup</p>
               <p class="cell-desc">Footprint plus AI QADAM wordmark. Use for splash screens, hero blocks, decks, OG-images, printed merch — the surfaces where the name has to read.</p>
-              <code class="codechip">brand/logo-full.svg</code>
+              <div class="cell-actions">
+                <code class="codechip">brand/logo-full.svg</code>
+                <a class="download-link" href="brand/logo-full.svg" download>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                  Download SVG
+                </a>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="brand-card" style="margin-top: 24px; background: var(--card); border: 1px dashed var(--border);">
+          <p class="brand-positioning" style="font-size: 16px;">Theme-adaptive SVG — heads up.</p>
+          <p class="brand-tagline" style="font-style: normal; font-size: 14px;">The full lockup carries a theme switch inside the file: letters render dark on light surfaces, off-white on dark; the footprint stays teal. The download is the same file in both themes — what you see depends on where you open it (browser, Figma, Preview each render the fallback differently). For print, partner decks, or any context that needs a fixed colour, open the SVG in Figma or Illustrator and bake the <span class="codechip">.aiq-logo-dark</span> fill to the colour you need before exporting.</p>
         </div>
 
         <p class="subsection-meta" style="margin-top: 40px;">Mark sizes</p>
@@ -337,15 +396,7 @@
         <h2 class="section-title display">Real rooms, real people.</h2>
         <p class="section-lead">Photography for AI Qadam is documentary, not staged. Real speakers mid-sentence, real laptops, real Q&amp;A hands going up. Avoid stock-AI tropes (blue circuit brains, white robots, glowing data orbs). The honesty principle applies to images too.</p>
 
-        <p class="subsection-meta">Style guidelines — draft</p>
-        <div class="photo-grid">
-          <div class="photo-cell"><span class="photo-label">Documentary · meetup floor</span></div>
-          <div class="photo-cell"><span class="photo-label">Speaker mid-slide · natural light</span></div>
-          <div class="photo-cell"><span class="photo-label">Hands &amp; laptops · close crop</span></div>
-          <div class="photo-cell"><span class="photo-label">Room wide · audience visible</span></div>
-        </div>
-
-        <p class="subsection-meta" style="margin-top: 32px;">Don't</p>
+        <p class="subsection-meta">Don't</p>
         <div class="dont-grid">
           <div class="dont-cell"><span class="dont-mark">✕</span><p>No AI-generated humans, robots, brain graphics, or glowing-data backgrounds.</p></div>
           <div class="dont-cell"><span class="dont-mark">✕</span><p>No corporate handshake shots, staged smiles, or empty boardroom posing.</p></div>
@@ -386,46 +437,99 @@
       <section class="docs-section" id="merch">
         <p class="section-eyebrow">06 — Merch templates</p>
         <h2 class="section-title display">Wearables, swag, print.</h2>
-        <p class="section-lead">Merch is brand made tangible — the highest-stakes surface for our visual identity. Every item ships from one of the templates below. Don't deviate; don't add taglines that aren't in the approved list.</p>
-        <p class="section-lead"><strong>Not for sale.</strong> AI Qadam merch is funded by partners as a community contribution and distributed free by chapters at community events. Templates exist for production specs, not retail — see <a href="brand-use.html" style="color: var(--primary); border-bottom: 1px solid currentColor;">Brand Usage Policy</a>.</p>
+        <p class="section-lead">What AI Qadam chapters hand out at events: a shopper, a notebook, a pen. Funded by partners as a community contribution, distributed free at meetups — never sold.</p>
+        <p class="section-lead">Want your own AI Qadam merch — for your chapter, your study group, a personal tote? Go ahead. We don't restrict the format; we only ask that the identity travels intact. <strong>Non-commercial use only</strong> — selling anything that carries the mark, the wordmark, or the brand teal isn't allowed, by anyone. See the <a href="brand-use.html" style="color: var(--primary); border-bottom: 1px solid currentColor;">Brand Usage Policy</a>.</p>
 
-        <p class="subsection-meta">Approved formats</p>
+        <p class="subsection-meta">What chapters ship today</p>
         <div class="streams-grid">
           <div class="stream-card draft">
+            <img class="merch-photo" src="merch/shopper.jpeg" alt="AI Qadam cream-canvas tote bag with the full lockup printed on the front">
             <span class="stream-status">Template</span>
-            <h4 class="stream-name">T-shirt</h4>
-            <p class="stream-desc">Black or off-white only. Full lockup on the chest, centred, ~30% of front width. Back is bare or carries a single line in mono: <span class="codechip">#AIQadam</span> or the meetup hashtag.</p>
-            <div class="stream-uses"><span class="codechip">Cotton 180g+</span><span class="codechip">Screen print</span></div>
+            <h4 class="stream-name">Shopper</h4>
+            <p class="stream-desc">Natural cream-canvas tote with long shoulder straps. Full lockup printed on one face — footprint mark in teal, wordmark in dark below. The opposite face stays bare.</p>
+            <div class="stream-uses"><span class="codechip">Cotton canvas</span><span class="codechip">Single-face print</span></div>
           </div>
           <div class="stream-card draft">
+            <img class="merch-photo" src="merch/notepad.jpeg" alt="AI Qadam spiral notebook with full lockup centred on the cover; kraft variant visible behind the white one">
             <span class="stream-status">Template</span>
-            <h4 class="stream-name">Sticker — die-cut mark</h4>
-            <p class="stream-desc">The footprint silhouette only, in brand teal on a white peelable backing. 40mm or 70mm. No wordmark on small stickers — it becomes unreadable.</p>
-            <div class="stream-uses"><span class="codechip">Vinyl</span><span class="codechip">Glossy</span></div>
+            <h4 class="stream-name">Notebook</h4>
+            <p class="stream-desc">Spiral-bound soft-cover notebook in white or kraft. Full lockup centred on the front cover — mark in teal, wordmark in dark below. Twin-loop wire binding on the left, folds flat for note-taking.</p>
+            <div class="stream-uses"><span class="codechip">Spiral-bound</span><span class="codechip">Two cover variants</span></div>
           </div>
           <div class="stream-card draft">
+            <img class="merch-photo" src="merch/pen.jpeg" alt="Matte white AI Qadam click pen with chrome push-button and clip, wordmark printed vertically near the top and the footprint mark in teal below">
             <span class="stream-status">Template</span>
-            <h4 class="stream-name">Conference badge</h4>
-            <p class="stream-desc">A6 portrait. Full lockup top-centre. Name in Geist 36, role in Inter 14 muted, optional org in mono 11. Lanyard hole 5mm centred. One QR code bottom-right.</p>
-            <div class="stream-uses"><span class="codechip">300gsm matte</span></div>
-          </div>
-          <div class="stream-card draft">
-            <span class="stream-status">Template</span>
-            <h4 class="stream-name">Poster · A2</h4>
-            <p class="stream-desc">Dark background. Hero in Geist 96. Event meta in mono. Lockup bottom-right, never bottom-centre. Use the photo bank for backgrounds — never AI-generated imagery.</p>
-            <div class="stream-uses"><span class="codechip">A2 · 420×594mm</span></div>
+            <h4 class="stream-name">Pen</h4>
+            <p class="stream-desc">Matte-white click barrel with a chrome push-button, clip, and a slim accent ring at the centre. Wordmark printed vertically along the upper barrel in dark; the footprint mark sits below in brand teal. No taglines, no slogans.</p>
+            <div class="stream-uses"><span class="codechip">Click mechanism</span><span class="codechip">Chrome accents</span></div>
           </div>
         </div>
 
         <div class="brand-card" style="margin-top: 32px; background: var(--card); border: 1px dashed var(--border);">
-          <p class="brand-positioning" style="font-size: 18px;">Print-ready files — request from your country lead.</p>
-          <p class="brand-tagline" style="font-style: normal;">CMYK PDF/X-1a originals for each template will land here once the first batches ship (T-shirts at Meetup #2). Until then: brand teal prints as Pantone <span class="codechip">7716 C</span> for safe colour-matching across suppliers.</p>
+          <p class="brand-positioning" style="font-size: 18px;">Making your own?</p>
+          <p class="brand-tagline" style="font-style: normal;">Use the SVG straight from <span class="codechip">brand/logo-full.svg</span> or <span class="codechip">brand/logo-mark.svg</span> — no redrawing, no recolouring, no AI-generated variants. Brand teal prints as Pantone <span class="codechip">7716 C</span> for safe colour-matching across suppliers. Paying a vendor to produce a one-off is fine; selling the result isn't — the bag is free, the brand isn't for sale.</p>
         </div>
+      </section>
+
+      <section class="docs-section" id="decks">
+        <p class="section-eyebrow">07 — Decks &amp; speaker templates</p>
+        <h2 class="section-title display">Speakers, fork this.</h2>
+        <p class="section-lead">Two starting points for anyone speaking at an AI Qadam meetup: a PPTX you can open in PowerPoint / Keynote / Google Slides, and an HTML deck that's editable in any text editor — and AI-friendly so you can ask Claude/ChatGPT to draft your slides directly into it.</p>
+        <p class="section-lead">Both share the same six-slide skeleton: <strong>title · speaker bio · section divider · content · quote · closing</strong>. Brand visual language (teal, four-dot motif, wordmark) is baked in. Don't override.</p>
+
+        <div class="streams-grid" style="margin-top: 32px;">
+          <div class="stream-card live">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">Speaker deck · PPTX</h4>
+            <p class="stream-desc">16:9, six skeleton slides, brand teal + Inter throughout. Open in PowerPoint, Keynote, or Google Slides; fill in the placeholders.</p>
+            <div class="cell-actions" style="margin-top: 14px;">
+              <code class="codechip">brand/decks/aiqadam-speaker-template.pptx</code>
+              <a class="download-link" href="brand/decks/aiqadam-speaker-template.pptx" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                Download PPTX
+              </a>
+            </div>
+          </div>
+
+          <div class="stream-card live">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">Speaker deck · HTML</h4>
+            <p class="stream-desc">Same skeleton, served live in the browser. Edit any <span class="codechip">&lt;section data-kind=&quot;...&quot;&gt;</span> block to author a slide. Keyboard nav (← → space) and a print mode for PDF export. AI-friendly: each slide is a self-contained semantic block.</p>
+            <div class="cell-actions" style="margin-top: 14px;">
+              <a class="download-link" href="speaker-deck.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                Open deck
+              </a>
+              <a class="download-link" href="speaker-deck.html" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                Download HTML
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 40px;">House rules for any deck</p>
+        <div class="dont-grid">
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't recolour the wordmark or the four dots. Teal lives on <span class="codechip">--primary</span>; everything else is neutral.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't use AI-generated imagery. Photos must be real — see <a href="#photography" style="color: var(--primary);">Photography</a>.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't substitute the display family. Geist for headings, Inter for body, JetBrains Mono for meta.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't bury the speaker. Name + role on slide 2 is non-negotiable.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't pitch a product on a community meetup deck. See <a href="brand-use.html" style="color: var(--primary);">Brand Usage Policy</a> — partners contribute, they don't advertise.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't drift the eyebrow. Always <span class="codechip">AI Qadam · &lt;context&gt;</span> in JetBrains Mono caps.</p></div>
+        </div>
+
       </section>
 
     </main>
   </div>
 </div>
+
+<dialog id="merch-lightbox" class="lightbox" aria-label="Merch photo">
+  <button type="button" class="lightbox-close" data-close aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <img class="lightbox-image" src="" alt="" data-close>
+</dialog>
 
 <footer class="doc-footer">
   <div class="container">
@@ -437,7 +541,7 @@
       &nbsp;·&nbsp;
       <a href="license-content.html">Content · CC BY 4.0</a>
     </div>
-    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:binali.rustamov@aiqadam.org">binali.rustamov@aiqadam.org</a></div>
+    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:brand@aiqadam.org">brand@aiqadam.org</a></div>
   </div>
 </footer>
 <script>
@@ -465,6 +569,71 @@
     const v = getComputedStyle(root).getPropertyValue(t).trim();
     if (v) el.textContent = v;
   });
+
+  // Page stats: section count + estimated read time ----------------------
+  (function pageStats(){
+    const slot = document.querySelector('[data-page-stats]');
+    if (!slot) return;
+    const main = document.querySelector('.toc-layout main') || document.body;
+    const sections = main.querySelectorAll('.docs-section').length;
+    const text = (main.innerText || '').trim();
+    const words = text ? text.split(/\s+/).length : 0;
+    const minutes = Math.max(1, Math.round(words / 200));
+    slot.textContent = `${sections} sections · ~${minutes} min read`;
+  })();
+
+  // Merch lightbox: click a photo → open full-size in a native <dialog> ----
+  (function lightbox(){
+    const dlg = document.getElementById('merch-lightbox');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    const img = dlg.querySelector('.lightbox-image');
+    document.querySelectorAll('.merch-photo').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        img.src = thumb.src;
+        img.alt = thumb.alt;
+        dlg.showModal();
+      });
+    });
+    dlg.addEventListener('click', (e) => {
+      if (e.target === dlg) { dlg.close(); return; }
+      if (e.target.closest('[data-close]')) dlg.close();
+    });
+  })();
+
+  // TOC scrollspy: active = last section whose top has scrolled above the
+  // offset line. Robust against short sections (no "lag by one" cases).
+  (function scrollspy(){
+    const tocLinks = new Map();
+    document.querySelectorAll('.toc a[href^="#"]').forEach(a => {
+      tocLinks.set(a.getAttribute('href').slice(1), a);
+    });
+    if (!tocLinks.size) return;
+    const targets = [];
+    tocLinks.forEach((link, id) => {
+      const el = document.getElementById(id);
+      if (el) targets.push({ id, el, link });
+    });
+    if (!targets.length) return;
+    const OFFSET = 100; // px below sticky header where "current" kicks in
+    let frame = 0;
+    function update() {
+      frame = 0;
+      let activeId = null;
+      for (const t of targets) {
+        if (t.el.getBoundingClientRect().top - OFFSET <= 0) activeId = t.id;
+        else break;
+      }
+      document.querySelectorAll('.toc a.active').forEach(el => el.classList.remove('active'));
+      if (activeId) tocLinks.get(activeId).classList.add('active');
+    }
+    function schedule() {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+  })();
 </script>
 </body>
 </html>

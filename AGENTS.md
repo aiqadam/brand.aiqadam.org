@@ -10,13 +10,12 @@ no framework, no bundler, no toolchain you need to install.
 
 ## Architecture
 
-Three-pillar umbrella with one landing page:
+Two-pillar umbrella with one landing page:
 
 ```
-index.html          → Umbrella landing (three pillar cards)
+index.html          → Umbrella landing (two pillar cards)
 brand.html          → Pillar 1 — Brand
 system.html         → Pillar 2 — Design system
-products.html       → Pillar 3 — Products
 ```
 
 - **Brand** is everything that travels beyond digital: identity, voice,
@@ -26,12 +25,10 @@ products.html       → Pillar 3 — Products
 - **Design system** is digital UI only: tokens, components, domain
   patterns, screen mockups, navigation rules. Used by engineers shipping
   product surfaces.
-- **Products** is per-product stubs (Events, Build, People, Education,
-  Chapters, Merch). Each stub describes which parts of Brand + System a
-  product uses, plus product-specific overrides.
 
-The legacy `portal-reference.html` is a screen-by-screen reference library
-that pre-dates the pillar split. Leave it as-is unless asked.
+Per-product (Events, Build, People, Education, Chapters, Merch) overrides
+live inside the relevant pillar — under Brand for off-screen specifics,
+under Design system for product UI. There is no separate Products pillar.
 
 ## Where new content goes
 
@@ -40,8 +37,9 @@ Decision tree:
 - Touches print, merch, decks, posters, social, off-screen? → **Brand**
 - Touches a button, component, page layout, digital pattern? → **Design
   system**
-- Specific to one stream (Events vs Build vs Merch)? → **Products**
-- Doesn't fit any? Talk to Binali — probably new pillar or new section.
+- Specific to one product stream (Events vs Build vs Merch)? → goes
+  inside whichever pillar fits, as a subsection
+- Doesn't fit either? Talk to Binali.
 
 Cross-link between pillars rather than duplicate. e.g. `system.html` links
 to `brand.html#colors` for tokens instead of redefining them.
@@ -53,28 +51,33 @@ to `brand.html#colors` for tokens instead of redefining them.
 ├── index.html              ← landing
 ├── brand.html              ← Pillar 1
 ├── system.html             ← Pillar 2
-├── products.html           ← Pillar 3
-├── portal-reference.html   ← legacy screen library (do not refactor)
 │
 ├── tokens.css              ← OKLCH tokens, shadcn-compatible. Light + dark.
 ├── components.css          ← buttons, inputs, badges, brand-mark slots
-├── docs.css                ← page chrome shared by the four pillar pages
-├── portal.css              ← styles unique to portal-reference.html
+├── docs.css                ← page chrome shared by landing + both pillar pages
 │
 ├── brand/
-│   ├── logo-mark.svg       ← footprint + 4 dots (navbar, favicon, compact)
-│   └── logo-full.svg       ← footprint + AI QADAM wordmark (splash, hero)
+│   ├── logo-mark.svg                       ← footprint + 4 dots (navbar, favicon, compact)
+│   ├── logo-full.svg                       ← footprint + AI QADAM wordmark (splash, hero)
+│   └── decks/
+│       └── aiqadam-speaker-template.pptx   ← PPTX skeleton, hand-maintained binary
+│
+├── merch/                                  ← product photos shown on brand.html#merch
+│   ├── shopper.jpeg
+│   ├── notepad.jpeg
+│   └── pen.jpeg
+│
+├── speaker-deck.html       ← HTML speaker deck template (AI-friendly, semantic <section data-kind>)
 │
 ├── LICENSE                 ← MIT — code only
-├── BRAND-USE.md            ← custom Brand Usage Policy (draft v1)
+├── BRAND-USE.md            ← custom Brand Usage Policy (v1)
 ├── LICENSE-content         ← CC BY 4.0 — docs content only
 ├── license.html            ← rendered LICENSE
 ├── brand-use.html          ← rendered BRAND-USE.md
 ├── license-content.html    ← rendered LICENSE-content
 │
 └── scripts/
-    ├── render-docs.py      ← regenerates the three legal HTML pages
-    ├── split-docs.py       ← legacy splitter, kept for reference
+    ├── render-docs.py        ← regenerates the three legal HTML pages
     └── README.md
 ```
 
@@ -93,7 +96,8 @@ to `brand.html#colors` for tokens instead of redefining them.
   a new place that shows the full logo on a dark/light surface that
   toggles, inline the SVG — don't `<img>`.
 - **Don't duplicate page chrome.** Header, footer, and hero markup are
-  copy-pasted across the four pages. If you change one, change all.
+  copy-pasted across the three pages (index + two pillars). If you
+  change one, change all.
   The shared CSS lives in `docs.css`.
 - **English in content, Russian in conversation.** The user (Binali)
   writes to AI agents in Russian. The docs at `brand.aiqadam.org` stay
@@ -109,14 +113,18 @@ python3 -m http.server 8765
 # open http://localhost:8765/
 ```
 
-The only build step is for the three legal pages. Re-run after editing
-`BRAND-USE.md`, `LICENSE`, or `LICENSE-content`:
+The only build step is for the three legal HTML pages, generated from
+`BRAND-USE.md`, `LICENSE`, and `LICENSE-content`:
 
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install markdown
 .venv/bin/python scripts/render-docs.py
 ```
+
+The HTML speaker deck (`speaker-deck.html`) and the PPTX template
+(`brand/decks/aiqadam-speaker-template.pptx`) are both hand-edited —
+no build needed.
 
 ## Licensing
 
@@ -148,7 +156,7 @@ you can read those instead of re-extracting the docx.
 
 ## Common mistakes to avoid
 
-- Don't add new pages above the pillar level. The umbrella is three
+- Don't add new pages above the pillar level. The umbrella is two
   pillars + one landing — that's the whole structure.
 - Don't relicense brand assets — they are explicitly excluded from MIT.
 - Don't AI-generate photography or imagery for the brand. The honesty
@@ -158,7 +166,3 @@ you can read those instead of re-extracting the docx.
 - Don't add a JS framework, bundler, or build toolchain. The site is
   static on purpose — chapter leads should be able to fork and host
   without setup.
-
-## Contact
-
-Binali Rustamov · `binali.rustamov@aiqadam.org` · Country Lead UZ, founder.

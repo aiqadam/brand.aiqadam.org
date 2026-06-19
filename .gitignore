@@ -1,0 +1,8 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+
+# Claude Code — personal settings only; project-level .claude/settings.json,
+# .claude/commands/, .claude/agents/ stay tracked so the team shares config.
+.claude/settings.local.json

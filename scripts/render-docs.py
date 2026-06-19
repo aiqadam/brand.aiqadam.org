@@ -57,7 +57,6 @@ def header() -> str:
       <a href="index.html">Overview</a>
       <a href="brand.html">Brand</a>
       <a href="system.html">Design system</a>
-      <a href="products.html">Products</a>
     </nav>
     <div class="header-right">
       <button class="btn btn-ghost btn-icon" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
@@ -82,7 +81,7 @@ FOOTER = """<footer class="doc-footer">
       &nbsp;·&nbsp;
       <a href="license-content.html">Content · CC BY 4.0</a>
     </div>
-    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:binali.rustamov@aiqadam.org">binali.rustamov@aiqadam.org</a></div>
+    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:brand@aiqadam.org">brand@aiqadam.org</a></div>
   </div>
 </footer>
 """
@@ -121,7 +120,12 @@ def hero(title: str, lead: str, source_file: str, eyebrow: str) -> str:
     <p class="tagline">{lead}</p>
     <div class="meta-row">
       <span class="item"><a href="index.html" style="color: var(--primary);">← Guidelines overview</a></span>
-      <span class="item">Source · <a href="{source_file}" style="color: var(--foreground);"><span class="codechip">{source_file}</span></a></span>
+      <span class="item">
+        <a class="download-link" href="{source_file}" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download {source_file}
+        </a>
+      </span>
     </div>
   </section>
 

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaker deck template · AI Qadam</title>
+<meta name="description" content="HTML speaker deck template for AI Qadam meetups. Edit slides in place; keyboard nav with ← → space. AI-friendly: each <section data-kind> is one slide.">
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* =========================================================
+     Speaker deck template — self-contained styles
+     ========================================================= */
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    overflow: hidden;
+  }
+
+  /* ---------- Stage: 16:9 frame, scales to viewport ---------- */
+  .deck {
+    position: fixed; inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+  .stage {
+    position: relative;
+    width: min(96vw, calc(96vh * 16 / 9));
+    aspect-ratio: 16 / 9;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    padding: 5.5% 6% 6.2% 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: var(--background);
+    color: var(--foreground);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.22s ease;
+  }
+  .slide.active { opacity: 1; visibility: visible; }
+
+  /* ---------- Type rhythm inside slides ---------- */
+  .slide-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.9cqi;
+    font-size: clamp(10px, 1.15cqi, 14px);
+    letter-spacing: 0.18em;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin: 0 0 1.6cqi 0;
+  }
+  .slide-heading {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0;
+    color: var(--foreground);
+  }
+  .slide-subhead {
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.6cqi, 22px);
+    line-height: 1.45;
+    color: var(--muted-foreground);
+    margin: 1.6cqi 0 0 0;
+    max-width: 80%;
+  }
+  .slide-meta {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.1cqi, 14px);
+    color: var(--muted-foreground);
+  }
+
+  /* ---------- Footer (shared across slides) ---------- */
+  .slide-footer {
+    position: absolute;
+    left: 6%; right: 6%; bottom: 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1cqi, 12px);
+    color: var(--muted-foreground);
+    letter-spacing: 0.08em;
+  }
+  .slide-footer .wordmark {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--muted-foreground);
+  }
+  /* The footprint mark in the footer stays brand teal — never recoloured.
+     Brand book: "Don't recolour. The mark IS the brand teal." */
+
+  /* ---------- Inline brand logos ---------- */
+  .aiq-logo-teal { fill: var(--aiq-logo-teal, #3CA29E); }
+  .aiq-logo-dark { fill: var(--aiq-logo-dark, currentColor); fill-rule: evenodd; }
+
+  /* Full lockup on title + closing slides — aspect-ratio gives the inline
+     SVG a non-zero width when only height is constrained. */
+  .aiq-lockup {
+    display: block;
+    height: clamp(64px, 16cqi, 240px);
+    aspect-ratio: 431 / 432;
+    margin: 0 auto 2.4cqi auto;   /* centred on all kinds */
+  }
+  .slide[data-kind="closing"] .aiq-lockup {
+    height: clamp(120px, 32cqi, 480px);
+  }
+
+  /* Footprint mark, small — for footer next to "AI QADAM" text.
+     aspect-ratio matches the symbol viewBox (206:340) so the SVG actually
+     gets a non-zero width when only the height is constrained. */
+  .aiq-mark-icon {
+    display: inline-block;
+    height: clamp(12px, 1.4cqi, 18px);
+    aspect-ratio: 206 / 340;
+    flex-shrink: 0;
+    margin-right: 0.6em;
+  }
+
+  /* ---------- Slide kind: TITLE ---------- */
+  .slide[data-kind="title"] {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .slide[data-kind="title"] .slide-heading {
+    font-size: clamp(28px, 5.4cqi, 72px);
+    margin-top: 1cqi;
+    max-width: 90%;
+  }
+  .slide[data-kind="title"] .speaker-line {
+    font-size: clamp(14px, 2.0cqi, 28px);
+    margin-top: 4cqi;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+  .slide[data-kind="title"] .event-meta {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.3cqi, 16px);
+    color: var(--muted-foreground);
+    margin-top: 0.6cqi;
+    letter-spacing: 0.04em;
+  }
+  .slide[data-kind="title"] .slide-subhead { max-width: 100%; }
+
+  /* ---------- Slide kind: BIO ---------- */
+  .slide[data-kind="bio"] .bio-grid {
+    display: grid;
+    grid-template-columns: 36% 1fr;
+    gap: 3.6cqi;
+    align-items: start;
+    flex: 1;
+  }
+  .slide[data-kind="bio"] .bio-photo {
+    aspect-ratio: 1 / 1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    color: var(--muted-foreground);
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.2cqi, 14px);
+  }
+  .slide[data-kind="bio"] .bio-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(20px, 3.6cqi, 52px);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .slide[data-kind="bio"] .bio-role {
+    font-family: var(--font-mono);
+    color: var(--primary);
+    font-size: clamp(11px, 1.4cqi, 18px);
+    letter-spacing: 0.06em;
+    margin: 1cqi 0 2.4cqi 0;
+  }
+  .slide[data-kind="bio"] .bio-text {
+    font-family: var(--font-sans);
+    font-size: clamp(13px, 1.7cqi, 22px);
+    line-height: 1.5;
+    color: var(--foreground);
+    margin: 0 0 2.4cqi 0;
+    max-width: 36em;
+  }
+  .slide[data-kind="bio"] .bio-talk {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.2cqi, 14px);
+    color: var(--muted-foreground);
+    letter-spacing: 0.12em;
+  }
+
+  /* ---------- Slide kind: SECTION ---------- */
+  .slide[data-kind="section"] {
+    justify-content: center;
+    padding-bottom: 8%;
+  }
+  .slide[data-kind="section"] .slide-heading {
+    font-size: clamp(34px, 7cqi, 96px);
+    max-width: 90%;
+  }
+  .slide[data-kind="section"] .section-rule {
+    display: block;
+    width: 5.6cqi;
+    height: 0.5cqi;
+    background: var(--primary);
+    border-radius: 2px;
+    margin-top: 2.8cqi;
+  }
+
+  /* ---------- Slide kind: CONTENT ---------- */
+  .slide[data-kind="content"] .slide-heading {
+    font-size: clamp(22px, 3.8cqi, 52px);
+    max-width: 90%;
+  }
+  .slide[data-kind="content"] .bullets {
+    list-style: none;
+    padding: 0;
+    margin: 4cqi 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6cqi;
+  }
+  .slide[data-kind="content"] .bullets li {
+    position: relative;
+    padding-left: 2.6cqi;
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 2.0cqi, 26px);
+    line-height: 1.45;
+    color: var(--foreground);
+  }
+  .slide[data-kind="content"] .bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.8cqi;
+    width: 0.9cqi; height: 0.9cqi;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+
+  /* ---------- Slide kind: QUOTE ---------- */
+  .slide[data-kind="quote"] { justify-content: center; }
+  .slide[data-kind="quote"] .quote-mark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(60px, 14cqi, 200px);
+    color: var(--primary);
+    line-height: 0.6;
+    margin-bottom: 1.6cqi;
+  }
+  .slide[data-kind="quote"] .quote-body {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(20px, 4.2cqi, 60px);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 90%;
+  }
+  .slide[data-kind="quote"] .quote-attr {
+    font-family: var(--font-mono);
+    font-size: clamp(11px, 1.4cqi, 18px);
+    color: var(--muted-foreground);
+    margin-top: 3cqi;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- Slide kind: CLOSING ---------- */
+  .slide[data-kind="closing"] {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .slide[data-kind="closing"] .closing-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2.8cqi, 36px);
+    color: var(--foreground);
+    margin: 0 0 4cqi 0;
+  }
+  .slide[data-kind="closing"] .closing-contact p {
+    font-family: var(--font-mono);
+    font-size: clamp(11px, 1.5cqi, 20px);
+    color: var(--muted-foreground);
+    margin: 0.4cqi 0;
+    letter-spacing: 0.06em;
+  }
+
+  /* Container queries — each .stage drives type scale */
+  .stage { container-type: inline-size; }
+
+  /* ---------- HUD: controls + counter ---------- */
+  .hud {
+    position: fixed;
+    bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px;
+    background: color-mix(in oklch, var(--background) 80%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted-foreground);
+    z-index: 10;
+  }
+  .hud button {
+    appearance: none;
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .hud button:hover {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+  }
+  .hud .counter {
+    min-width: 50px;
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+
+  .corner-actions {
+    position: fixed;
+    top: 16px; right: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+  .corner-actions a, .corner-actions button {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: color-mix(in oklch, var(--background) 80%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--foreground);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .corner-actions a:hover, .corner-actions button:hover {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+  }
+
+  /* ---------- Print: all slides on separate pages ---------- */
+  @media print {
+    @page { size: 13.333in 7.5in; margin: 0; }
+    body { overflow: visible; }
+    .deck { position: static; padding: 0; }
+    .stage { width: 100%; height: 100vh; border: none; border-radius: 0; }
+    .slide {
+      position: relative;
+      opacity: 1; visibility: visible;
+      page-break-after: always;
+      transition: none;
+    }
+    .hud, .corner-actions { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!--
+  ===========================================================
+  AI-FRIENDLY DECK · how to edit
+
+  Each <section class="slide" data-kind="..."> below is ONE slide.
+
+  Slide kinds and their content shape:
+
+    title    — .aiq-lockup (full logo), .slide-eyebrow, .slide-heading, .speaker-line, .event-meta
+    bio      — eyebrow, .bio-grid > (.bio-photo, .bio-info)
+    section  — eyebrow, .slide-heading, .section-rule
+    content  — eyebrow, .slide-heading, .slide-subhead, ul.bullets
+    quote    — .quote-mark, .quote-body, .quote-attr
+    closing  — .aiq-lockup (full logo), .closing-tagline, .closing-contact
+
+  Logos: <use href="#aiq-mark"> for the footprint (footer), <use href="#aiq-full">
+  for the full lockup (mark + AI QADAM wordmark). Both inherit theme via
+  --aiq-logo-teal / --aiq-logo-dark CSS variables.
+
+  TO ADD a slide: copy any <section class="slide" data-kind="..."> and
+  edit the text inside. Order = slide order. Everything else is automatic.
+
+  TO REMOVE a slide: just delete its <section>.
+
+  Brand rules (immutable):
+    - Brand teal lives on var(--primary). Don't override.
+    - Wordmark is always "AI QADAM" caps, never "AI Qadam" on title surfaces.
+    - Photography is real photos only. Never AI-generated images.
+  ===========================================================
+-->
+
+<!-- Brand logo library: define once, <use> from anywhere ------------- -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
+  <defs>
+    <!-- Footprint mark only — for the footer (teal, no theme dependency) -->
+    <symbol id="aiq-mark" viewBox="108 -5 206 340">
+      <path class="aiq-logo-teal" d="M139.184 0.00725804C144.432 -0.117117 148.69 1.35241 152.72 4.76898C157.749 9.1171 160.834 15.2931 161.292 21.9252C162.035 31.5894 158.219 37.3056 152.386 44.1655C152.123 51.7317 152.238 60.959 152.527 68.5102L152.793 68.3217C156.516 65.7096 160.544 63.7242 164.981 62.6655C172.46 60.8808 203.916 60.548 211.564 61.9409C236.249 66.4361 279.47 91.7311 293.595 112.412C296.495 116.657 298.424 121.276 299.283 126.35C300.633 134.321 299.917 143.279 299.132 151.309C297.451 168.568 294.017 185.42 290.455 202.366C288.323 212.493 285.895 222.669 284.62 232.944C282.701 248.447 285.042 264.359 282.132 279.671C278.882 296.756 269.057 310.765 254.807 320.497C248.492 324.593 241.451 327.443 234.064 328.887C218.074 331.881 200.145 328.665 186.867 319.215C165.193 303.793 158.063 279.69 160.081 254.184C160.743 245.812 161.701 238.587 164.596 230.622C166.414 225.766 168.588 221.047 171.102 216.51C175.061 209.323 182.868 199.015 181.553 190.737C179.737 179.303 164.513 164.392 156.245 156.51C150.042 150.925 143.597 146.053 138.064 139.744C126.058 126.603 123.479 104.369 132.157 88.893C137.811 78.8093 140.719 75.8673 139.725 63.602C139.319 58.5893 139.988 53.1905 138.9 47.8276C135.981 46.5951 133.014 45.3729 130.442 43.5014C114.355 31.7949 118.242 3.2466 139.184 0.00725804ZM238.354 85.8022C225.423 79.2188 213.032 74.2384 198.326 74.9399C191.547 75.2633 184.35 74.7989 177.493 75.0414C142.977 76.3458 127.151 113.448 153.465 136.973C167.964 149.935 192.361 169.718 194.348 190.637C195.756 205.462 182.828 219.117 177.825 232.065C162.629 273.727 179.534 320.274 229.795 316.961C230.073 316.946 230.348 316.924 230.626 316.899C230.338 303.849 230.101 286.902 230.57 273.855C223.898 268.427 220.761 260.955 226.914 253.558C229.189 250.777 232.511 249.055 236.098 248.802C243.901 248.24 249.636 254.071 249.929 261.699C250.142 267.242 247.288 270.924 243.076 274.071C242.838 278.149 242.866 282.386 242.938 286.48C243.088 295.192 242.861 304.011 243.145 312.711C255.517 305.699 264.908 294.768 268.63 280.852C272.983 264.593 269.714 247.077 272.086 230.505C276.223 197.226 288.642 163.907 286.398 129.992C286.217 127.241 284.748 123.608 283.42 121.254C282.666 119.946 281.88 118.66 281.051 117.398C280.117 127.459 278.332 134.671 270.135 141.401C266.979 144.019 263.276 145.891 259.298 146.877C254.623 147.999 247.738 147.774 242.779 147.77L222.157 147.749C218.279 147.746 213.488 147.62 209.684 147.898C208.24 149.484 207.204 150.86 207.331 153.108C207.689 159.45 218.764 166.768 221.145 174.42C223.23 181.124 222.33 201.483 222.333 209.59L222.31 220.151C238.97 220.249 249.611 222.355 247.723 201.868C247.42 198.573 247.704 193.829 247.601 190.34C240.892 184.486 237.41 176.443 244.298 168.96C246.751 166.27 250.201 164.7 253.839 164.618C266.954 164.412 272.104 179.87 262.317 188.931C261.57 189.621 260.798 190.281 260.001 190.91C260.073 201.03 261.954 214.563 255.673 223.102C246.813 235.142 230.682 232.165 217.336 232.555C212.445 237.014 202.877 244.861 203.094 251.789C203.308 258.608 202.813 266.049 203.269 272.818C209.325 278.036 211.916 285.167 205.659 291.608C203.476 293.839 200.484 295.096 197.361 295.096C194.048 295.087 190.752 293.546 188.483 291.159C186.248 288.837 185.092 285.68 185.298 282.464C185.563 278.614 187.681 275.568 190.5 273.102C190.53 266.499 189.399 247.977 191.475 243.024C192.986 239.418 196.025 236.459 198.754 233.752C202.068 230.468 207.645 226.18 209.095 221.746C209.657 220.029 209.695 218.162 209.71 216.37C209.765 209.608 209.525 202.84 209.555 196.076C209.578 190.972 210.367 184.118 209.306 179.2C207.351 170.131 193.02 164.862 195.007 150.179C195.502 146.517 197.32 142.694 199.936 140.04C202.128 137.852 204.896 136.332 207.918 135.655C211.141 134.909 219.085 135.206 222.776 135.221L246.232 135.307C249.582 135.318 254.616 135.648 257.701 134.524C270.67 129.794 268.448 116.107 268.204 105.047C262.782 100.718 257.054 96.7803 251.073 93.2651C251.101 101.415 252.26 108.449 245.87 114.816C239.298 121.362 229.598 119.448 221.067 119.676C210.363 119.963 199.417 119.357 188.707 119.727C185.73 123.265 182.863 126.176 177.869 126.581C174.345 126.861 170.864 125.653 168.27 123.25C158.937 114.752 164.602 99.1611 177.352 99.517C183.045 99.6761 186.689 102.916 189.288 107.671L218.904 107.509C223.954 107.487 229.161 107.667 234.164 107.095C235.254 106.965 236.185 106.29 236.954 105.567C238.176 104.42 238.386 102.858 238.414 101.252C238.495 96.1075 238.335 90.9476 238.354 85.8022Z"/>
+      <path class="aiq-logo-teal" d="M188.806 9.06475C198.057 8.53944 206.004 15.5648 206.617 24.8101C207.231 34.0554 200.281 42.0688 191.042 42.7701C181.678 43.4807 173.532 36.4166 172.91 27.046C172.289 17.6757 179.43 9.59725 188.806 9.06475Z"/>
+      <path class="aiq-logo-teal" d="M231.132 21.0719C239.054 20.541 245.917 26.5029 246.498 34.4185C247.079 42.3341 241.161 49.2348 233.248 49.8673C225.267 50.5054 218.289 44.5219 217.701 36.5341C217.114 28.5463 223.142 21.6073 231.132 21.0719Z"/>
+      <path class="aiq-logo-teal" d="M266.742 39.6966C273.811 39.4325 279.745 44.9575 279.989 52.0244C280.236 59.091 274.692 65.0122 267.626 65.2366C260.586 65.46 254.692 59.9453 254.451 52.9063C254.207 45.8675 259.704 39.9591 266.742 39.6966Z"/>
+      <path class="aiq-logo-teal" d="M293.629 63.2102C299.82 62.4271 305.486 66.7805 306.323 72.9649C307.161 79.1489 302.857 84.853 296.682 85.7455C290.429 86.6496 284.636 82.2805 283.789 76.0183C282.939 69.7561 287.361 64.0033 293.629 63.2102Z"/>
+    </symbol>
+
+    <!-- Full lockup — mark + AI QADAM wordmark.
+         Wordmark fill follows --aiq-logo-dark (resolves to --foreground). -->
+    <symbol id="aiq-full" viewBox="0 0 431 432">
+      <path class="aiq-logo-teal" d="M139.184 0.00725804C144.432 -0.117117 148.69 1.35241 152.72 4.76898C157.749 9.1171 160.834 15.2931 161.292 21.9252C162.035 31.5894 158.219 37.3056 152.386 44.1655C152.123 51.7317 152.238 60.959 152.527 68.5102L152.793 68.3217C156.516 65.7096 160.544 63.7242 164.981 62.6655C172.46 60.8808 203.916 60.548 211.564 61.9409C236.249 66.4361 279.47 91.7311 293.595 112.412C296.495 116.657 298.424 121.276 299.283 126.35C300.633 134.321 299.917 143.279 299.132 151.309C297.451 168.568 294.017 185.42 290.455 202.366C288.323 212.493 285.895 222.669 284.62 232.944C282.701 248.447 285.042 264.359 282.132 279.671C278.882 296.756 269.057 310.765 254.807 320.497C248.492 324.593 241.451 327.443 234.064 328.887C218.074 331.881 200.145 328.665 186.867 319.215C165.193 303.793 158.063 279.69 160.081 254.184C160.743 245.812 161.701 238.587 164.596 230.622C166.414 225.766 168.588 221.047 171.102 216.51C175.061 209.323 182.868 199.015 181.553 190.737C179.737 179.303 164.513 164.392 156.245 156.51C150.042 150.925 143.597 146.053 138.064 139.744C126.058 126.603 123.479 104.369 132.157 88.893C137.811 78.8093 140.719 75.8673 139.725 63.602C139.319 58.5893 139.988 53.1905 138.9 47.8276C135.981 46.5951 133.014 45.3729 130.442 43.5014C114.355 31.7949 118.242 3.2466 139.184 0.00725804ZM238.354 85.8022C225.423 79.2188 213.032 74.2384 198.326 74.9399C191.547 75.2633 184.35 74.7989 177.493 75.0414C142.977 76.3458 127.151 113.448 153.465 136.973C167.964 149.935 192.361 169.718 194.348 190.637C195.756 205.462 182.828 219.117 177.825 232.065C162.629 273.727 179.534 320.274 229.795 316.961C230.073 316.946 230.348 316.924 230.626 316.899C230.338 303.849 230.101 286.902 230.57 273.855C223.898 268.427 220.761 260.955 226.914 253.558C229.189 250.777 232.511 249.055 236.098 248.802C243.901 248.24 249.636 254.071 249.929 261.699C250.142 267.242 247.288 270.924 243.076 274.071C242.838 278.149 242.866 282.386 242.938 286.48C243.088 295.192 242.861 304.011 243.145 312.711C255.517 305.699 264.908 294.768 268.63 280.852C272.983 264.593 269.714 247.077 272.086 230.505C276.223 197.226 288.642 163.907 286.398 129.992C286.217 127.241 284.748 123.608 283.42 121.254C282.666 119.946 281.88 118.66 281.051 117.398C280.117 127.459 278.332 134.671 270.135 141.401C266.979 144.019 263.276 145.891 259.298 146.877C254.623 147.999 247.738 147.774 242.779 147.77L222.157 147.749C218.279 147.746 213.488 147.62 209.684 147.898C208.24 149.484 207.204 150.86 207.331 153.108C207.689 159.45 218.764 166.768 221.145 174.42C223.23 181.124 222.33 201.483 222.333 209.59L222.31 220.151C238.97 220.249 249.611 222.355 247.723 201.868C247.42 198.573 247.704 193.829 247.601 190.34C240.892 184.486 237.41 176.443 244.298 168.96C246.751 166.27 250.201 164.7 253.839 164.618C266.954 164.412 272.104 179.87 262.317 188.931C261.57 189.621 260.798 190.281 260.001 190.91C260.073 201.03 261.954 214.563 255.673 223.102C246.813 235.142 230.682 232.165 217.336 232.555C212.445 237.014 202.877 244.861 203.094 251.789C203.308 258.608 202.813 266.049 203.269 272.818C209.325 278.036 211.916 285.167 205.659 291.608C203.476 293.839 200.484 295.096 197.361 295.096C194.048 295.087 190.752 293.546 188.483 291.159C186.248 288.837 185.092 285.68 185.298 282.464C185.563 278.614 187.681 275.568 190.5 273.102C190.53 266.499 189.399 247.977 191.475 243.024C192.986 239.418 196.025 236.459 198.754 233.752C202.068 230.468 207.645 226.18 209.095 221.746C209.657 220.029 209.695 218.162 209.71 216.37C209.765 209.608 209.525 202.84 209.555 196.076C209.578 190.972 210.367 184.118 209.306 179.2C207.351 170.131 193.02 164.862 195.007 150.179C195.502 146.517 197.32 142.694 199.936 140.04C202.128 137.852 204.896 136.332 207.918 135.655C211.141 134.909 219.085 135.206 222.776 135.221L246.232 135.307C249.582 135.318 254.616 135.648 257.701 134.524C270.67 129.794 268.448 116.107 268.204 105.047C262.782 100.718 257.054 96.7803 251.073 93.2651C251.101 101.415 252.26 108.449 245.87 114.816C239.298 121.362 229.598 119.448 221.067 119.676C210.363 119.963 199.417 119.357 188.707 119.727C185.73 123.265 182.863 126.176 177.869 126.581C174.345 126.861 170.864 125.653 168.27 123.25C158.937 114.752 164.602 99.1611 177.352 99.517C183.045 99.6761 186.689 102.916 189.288 107.671L218.904 107.509C223.954 107.487 229.161 107.667 234.164 107.095C235.254 106.965 236.185 106.29 236.954 105.567C238.176 104.42 238.386 102.858 238.414 101.252C238.495 96.1075 238.335 90.9476 238.354 85.8022Z"/>
+      <path class="aiq-logo-teal" d="M188.806 9.06475C198.057 8.53944 206.004 15.5648 206.617 24.8101C207.231 34.0554 200.281 42.0688 191.042 42.7701C181.678 43.4807 173.532 36.4166 172.91 27.046C172.289 17.6757 179.43 9.59725 188.806 9.06475Z"/>
+      <path class="aiq-logo-teal" d="M231.132 21.0719C239.054 20.541 245.917 26.5029 246.498 34.4185C247.079 42.3341 241.161 49.2348 233.248 49.8673C225.267 50.5054 218.289 44.5219 217.701 36.5341C217.114 28.5463 223.142 21.6073 231.132 21.0719Z"/>
+      <path class="aiq-logo-teal" d="M266.742 39.6966C273.811 39.4325 279.745 44.9575 279.989 52.0244C280.236 59.091 274.692 65.0122 267.626 65.2366C260.586 65.46 254.692 59.9453 254.451 52.9063C254.207 45.8675 259.704 39.9591 266.742 39.6966Z"/>
+      <path class="aiq-logo-teal" d="M293.629 63.2102C299.82 62.4271 305.486 66.7805 306.323 72.9649C307.161 79.1489 302.857 84.853 296.682 85.7455C290.429 86.6496 284.636 82.2805 283.789 76.0183C282.939 69.7561 287.361 64.0033 293.629 63.2102Z"/>
+      <path class="aiq-logo-dark" d="M22.39 363.064L36.8687 363.077C38.0341 367.258 41.0394 374.918 42.5769 379.18L52.9194 407.864C54.9175 413.411 57.28 419.564 59.0141 425.155C54.76 425.196 50.5059 425.202 46.2522 425.171L41.8634 411.527H37.5481L17.5131 411.521C16.0016 416.021 14.3878 420.627 13.0781 425.174C8.7475 425.211 4.33781 425.158 0 425.149C5.65938 410.671 10.4803 395.571 16.0006 381.014C18.1922 375.233 20.5166 368.936 22.39 363.064Z M29.4493 376.902C30.6328 377.762 36.7828 397.521 37.9006 400.724L30.9856 400.771L21.5693 400.73L29.4493 376.902Z"/>
+      <path class="aiq-logo-dark" d="M68.2885 363.086L80.17 363.089L80.1525 424.795C79.3719 425.495 70.0291 425.198 68.2756 425.186L68.2885 363.086Z"/>
+      <path class="aiq-logo-dark" d="M138.732 362.539C163.06 362.298 175.169 384.052 167.787 406.392C166.727 409.602 164.295 412.845 162.305 415.542L169.134 424.123C166.219 426.598 163.271 429.036 160.293 431.436C158.917 429.658 155.109 424.552 153.685 423.339L153.023 423.455C149.473 424.733 145.76 425.508 141.994 425.758C133.29 426.361 125.887 424.736 119.323 419.08C103.313 405.286 106.042 374.755 125.674 365.561C130.415 363.339 133.612 362.792 138.732 362.539Z M138.227 373.765C157.358 372.875 161.254 392.693 155.301 407.034C152.659 403.718 149.933 400.381 147.442 396.956C144.684 399.318 141.62 401.734 138.795 404.05L141.165 407.037C142.801 409.237 144.614 411.4 146.349 413.531C145.477 413.737 144.599 413.918 143.716 414.075C132.018 416.043 122.691 410.753 121.127 398.365C119.595 386.225 125.053 375.143 138.227 373.765Z"/>
+      <path class="aiq-logo-dark" d="M195.933 363.039C200.721 363.067 205.509 363.067 210.296 363.045L232.798 425.202C228.498 425.208 224.201 425.192 219.901 425.155L215.351 411.527H210.439L190.863 411.542C189.422 416.111 187.934 420.661 186.4 425.198L173.639 425.148C176.085 417.645 179.112 409.723 181.802 402.248L195.933 363.039Z M202.88 376.893C204.195 377.724 210.348 397.496 211.431 400.689C208.657 400.761 205.799 400.749 203.017 400.774L194.938 400.733C197.541 392.771 200.188 384.824 202.88 376.893Z"/>
+      <path class="aiq-logo-dark" d="M241.445 363.084C256.217 363.034 274.507 360.753 285.854 371.984C297.964 383.975 297.658 404.193 285.923 416.387C276.561 424.909 268.445 425.193 256.214 425.19C251.307 425.168 246.401 425.19 241.495 425.259C241.261 418.237 241.429 410.487 241.429 403.393L241.445 363.084Z M253.379 374.066C261.358 373.856 270.279 373.681 276.745 379.137C283.517 384.853 284.054 395.919 280.967 403.678C280.179 405.65 278.989 407.141 277.617 408.706C270.461 414.859 262.326 413.803 253.386 413.762L253.379 374.066Z"/>
+      <path class="aiq-logo-dark" d="M319.767 363.021C324.379 363.15 329.367 363.072 334.011 363.084C336.317 370.24 339.511 378.453 342.082 385.603L356.354 425.187L343.498 425.19L338.961 411.528L334.173 411.522L314.804 411.568C313.198 416.084 311.679 420.634 310.248 425.209L297.282 425.153C304.864 404.537 312.029 383.537 319.767 363.021Z M326.898 376.678C328.536 379.118 333.729 396.5 335.139 400.737L327.307 400.771L318.842 400.74C321.232 393.406 324.129 383.712 326.898 376.678Z"/>
+      <path class="aiq-logo-dark" d="M364.773 363.092L380.307 363.046C385.792 376.83 391.998 391.042 397.761 404.777C403.454 391.73 408.917 376.474 414.348 363.08C419.614 363.005 425.051 363.074 430.329 363.074L430.317 425.18L418.42 425.177C418.192 417.624 418.354 409.236 418.351 401.621L418.307 381.874C413.426 393.733 408.464 405.558 403.42 417.349C399.573 417.374 395.723 417.367 391.876 417.33C386.836 405.505 381.726 393.711 376.551 381.946C376.798 387.052 376.657 393.049 376.654 398.23C376.676 407.217 376.648 416.205 376.567 425.189L364.823 425.167C364.561 418.702 364.782 410.539 364.782 403.927L364.773 363.092Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="deck">
+  <div class="stage" id="stage">
+
+    <!-- ===== Slide 1 · TITLE ===== -->
+    <section class="slide" data-kind="title">
+      <svg class="aiq-lockup" role="img" aria-label="AI Qadam"><use href="#aiq-full"/></svg>
+      <p class="slide-eyebrow">AI Qadam · Meetup</p>
+      <h1 class="slide-heading">Talk title goes here</h1>
+      <p class="speaker-line">Speaker Name · Role at Company</p>
+      <p class="event-meta">Meetup #N · Tashkent · 2026-MM-DD</p>
+      <div class="slide-footer">
+        <span class="wordmark"><svg class="aiq-mark-icon" aria-hidden="true"><use href="#aiq-mark"/></svg>AI QADAM</span>
+        <span>#AIQadam</span>
+      </div>
+    </section>
+
+    <!-- ===== Slide 2 · BIO ===== -->
+    <section class="slide" data-kind="bio">
+      <p class="slide-eyebrow">01 · Who is speaking</p>
+      <div class="bio-grid">
+        <div class="bio-photo">[ photo · 1:1 ]</div>
+        <div class="bio-info">
+          <h2 class="bio-name">Speaker Name</h2>
+          <p class="bio-role">Role · Company · Country</p>
+          <p class="bio-text">
+            Two-to-three sentences of bio. What you build, what you've shipped,
+            what got you on this stage. Keep it concrete — credentials read as
+            noise; outcomes read as proof.
+          </p>
+          <p class="bio-talk">TODAY: Talk title</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span class="wordmark"><svg class="aiq-mark-icon" aria-hidden="true"><use href="#aiq-mark"/></svg>AI QADAM</span>
+        <span>#AIQadam</span>
+      </div>
+    </section>
+
+    <!-- ===== Slide 3 · SECTION ===== -->
+    <section class="slide" data-kind="section">
+      <p class="slide-eyebrow">Section 02</p>
+      <h2 class="slide-heading">Section heading goes here</h2>
+      <span class="section-rule"></span>
+      <div class="slide-footer">
+        <span class="wordmark"><svg class="aiq-mark-icon" aria-hidden="true"><use href="#aiq-mark"/></svg>AI QADAM</span>
+        <span>#AIQadam</span>
+      </div>
+    </section>
+
+    <!-- ===== Slide 4 · CONTENT ===== -->
+    <section class="slide" data-kind="content">
+      <p class="slide-eyebrow">02 · Content</p>
+      <h2 class="slide-heading">Slide heading — one clear claim</h2>
+      <p class="slide-subhead">One sentence supporting the claim. Concrete, not abstract.</p>
+      <ul class="bullets">
+        <li>First point — keep it short. One thought per bullet.</li>
+        <li>Second point — concrete number, real example, or one verb.</li>
+        <li>Third point — if you need a fourth, it should be a new slide.</li>
+      </ul>
+      <div class="slide-footer">
+        <span class="wordmark"><svg class="aiq-mark-icon" aria-hidden="true"><use href="#aiq-mark"/></svg>AI QADAM</span>
+        <span>#AIQadam</span>
+      </div>
+    </section>
+
+    <!-- ===== Slide 5 · QUOTE ===== -->
+    <section class="slide" data-kind="quote">
+      <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+      <p class="quote-body">
+        The most important thing about this talk fits in one sentence.
+      </p>
+      <p class="quote-attr">— Author, source</p>
+      <div class="slide-footer">
+        <span class="wordmark"><svg class="aiq-mark-icon" aria-hidden="true"><use href="#aiq-mark"/></svg>AI QADAM</span>
+        <span>#AIQadam</span>
+      </div>
+    </section>
+
+    <!-- ===== Slide 6 · CLOSING ===== -->
+    <section class="slide" data-kind="closing">
+      <svg class="aiq-lockup" role="img" aria-label="AI Qadam"><use href="#aiq-full"/></svg>
+      <p class="closing-tagline">Thanks — let's keep building together.</p>
+      <div class="closing-contact">
+        <p>your.email@domain.com · @yourhandle</p>
+        <p>#AIQadam · brand.aiqadam.org</p>
+      </div>
+      <div class="slide-footer">
+        <span class="wordmark"><svg class="aiq-mark-icon" aria-hidden="true"><use href="#aiq-mark"/></svg>AI QADAM</span>
+        <span>#AIQadam</span>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Corner actions ----------------------------------------- -->
+<div class="corner-actions">
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">theme</button>
+  <a href="brand.html#decks" title="Back to brand guidelines">← brand</a>
+  <button id="print-all" title="Print all slides">print</button>
+</div>
+
+<!-- Heads-up nav ------------------------------------------- -->
+<div class="hud" role="toolbar" aria-label="Slide navigation">
+  <button id="prev" aria-label="Previous slide">‹</button>
+  <span class="counter" id="counter">1 / 6</span>
+  <button id="next" aria-label="Next slide">›</button>
+</div>
+
+<script>
+  // ---------- Theme toggle (shared pattern with site) -------
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    try { localStorage.setItem('aiqadam-ds-theme', t); } catch(e) {}
+  }
+  (function init(){
+    const saved = localStorage.getItem('aiqadam-ds-theme');
+    if (saved === 'light' || saved === 'dark') applyTheme(saved);
+  })();
+  themeBtn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // ---------- Slide nav -------------------------------------
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const counter = document.getElementById('counter');
+  let idx = 0;
+
+  function show(i) {
+    idx = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, n) => s.classList.toggle('active', n === idx));
+    counter.textContent = `${idx + 1} / ${slides.length}`;
+    // reflect in hash for shareable deep-links
+    history.replaceState(null, '', `#${idx + 1}`);
+  }
+
+  function next() { show(idx + 1); }
+  function prev() { show(idx - 1); }
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target instanceof HTMLInputElement) return;
+    switch (e.key) {
+      case 'ArrowRight':
+      case ' ':
+      case 'PageDown':
+        e.preventDefault(); next(); break;
+      case 'ArrowLeft':
+      case 'PageUp':
+        e.preventDefault(); prev(); break;
+      case 'Home':
+        e.preventDefault(); show(0); break;
+      case 'End':
+        e.preventDefault(); show(slides.length - 1); break;
+    }
+  });
+
+  // ---------- Print all ------------------------------------
+  document.getElementById('print-all').addEventListener('click', () => window.print());
+
+  // ---------- Boot from hash --------------------------------
+  const hashN = parseInt((location.hash || '').slice(1), 10);
+  show(Number.isFinite(hashN) && hashN > 0 ? hashN - 1 : 0);
+</script>
+
+</body>
+</html>
