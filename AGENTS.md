@@ -76,8 +76,16 @@ to `brand.html#colors` for tokens instead of redefining them.
 ├── brand-use.html          ← rendered BRAND-USE.md
 ├── license-content.html    ← rendered LICENSE-content
 │
+├── CNAME                   ← brand.aiqadam.org — GitHub Pages custom domain
+├── robots.txt              ← allow all + explicit AI crawlers + sitemap pointer
+├── sitemap.xml             ← seven public URLs with lastmod + priority
+├── llms.txt                ← structured markdown index for LLM agents (llmstxt.org)
+│
+├── brand/og-image.svg      ← shared 1200×630 OG/Twitter Card image
+│
 └── scripts/
     ├── render-docs.py        ← regenerates the three legal HTML pages
+    ├── bump-assets.py        ← appends ?v=<md5-8> to CSS link tags
     └── README.md
 ```
 
@@ -103,6 +111,22 @@ to `brand.html#colors` for tokens instead of redefining them.
   writes to AI agents in Russian. The docs at `brand.aiqadam.org` stay
   in English — localisation comes later via the "Multilingual by
   default" principle.
+- **Per-page meta is non-negotiable on every HTML page.** Every public
+  page must carry: unique `<meta name="description">`, OpenGraph block
+  (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`,
+  `og:image`, `og:image:width`, `og:image:height`, `og:locale`), Twitter
+  Card (`twitter:card=summary_large_image`, `twitter:title`,
+  `twitter:description`, `twitter:image`), `<link rel="canonical">`, and
+  `<meta name="theme-color" content="#3CA29E">`. Shared `og:image` is
+  `brand/og-image.svg`. The canonical shape lives in
+  `scripts/render-docs.py` `head()` — mirror it.
+- **CSS link tags use cache-bust query strings.** Every `<link href="*.css">`
+  carries a `?v=<md5-8>` suffix that `scripts/bump-assets.py` rewrites
+  from current file content. Don't manually edit these — run the script.
+- **Chrome elements on every pillar page.** Top-right GitHub corner
+  (links to repo) and footer `aiq-build-badge` (mark + "an AI Qadam
+  Build project", links to `https://build.aiqadam.org`) are part of the
+  page chrome. When duplicating chrome, include both.
 
 ## Build & local dev
 
@@ -113,18 +137,42 @@ python3 -m http.server 8765
 # open http://localhost:8765/
 ```
 
-The only build step is for the three legal HTML pages, generated from
-`BRAND-USE.md`, `LICENSE`, and `LICENSE-content`:
-
-```sh
-python3 -m venv .venv
-.venv/bin/pip install markdown
-.venv/bin/python scripts/render-docs.py
-```
-
 The HTML speaker deck (`speaker-deck.html`) and the PPTX template
 (`brand/decks/aiqadam-speaker-template.pptx`) are both hand-edited —
 no build needed.
+
+## Deploy
+
+The site is hosted on **GitHub Pages** from the `main` branch root, with
+DNS via Cloudflare:
+
+- Custom domain: `brand.aiqadam.org` (set via `CNAME` file in repo root)
+- DNS: Cloudflare CNAME `brand.aiqadam.org` → `aiqadam.github.io`,
+  DNS-only / grey-cloud (so GitHub's Let's Encrypt SSL provisioning works)
+- HTTPS enforced via GitHub Pages settings
+
+**Deploy sequence** when CSS or legal-doc sources have changed:
+
+```sh
+# 1. Regenerate legal pages from BRAND-USE.md / LICENSE / LICENSE-content
+.venv/bin/python scripts/render-docs.py
+
+# 2. Refresh ?v=<hash> on every CSS link in every HTML file
+python3 scripts/bump-assets.py
+
+# 3. Commit and push — GitHub Pages auto-rebuilds (~90 sec)
+git add -A && git commit && git push origin main
+```
+
+Order matters: `render-docs.py` first (it rewrites the three legal HTML
+files), `bump-assets.py` after (so newly-generated legal pages also get
+their `?v=<hash>` query strings). HTML changes alone don't need the
+script — just `git push`.
+
+After push, check Pages status with `gh api repos/aiqadam/brand.aiqadam.org/pages`.
+
+When **adding a new URL** to the site, update three files manually:
+`sitemap.xml`, `llms.txt`, and (if a new pillar) the file layout above.
 
 ## Licensing
 
@@ -166,3 +214,12 @@ you can read those instead of re-extracting the docx.
 - Don't add a JS framework, bundler, or build toolchain. The site is
   static on purpose — chapter leads should be able to fork and host
   without setup.
+- Don't hand-edit `?v=<hash>` query strings on CSS link tags — run
+  `scripts/bump-assets.py` instead. If you forget, browsers may serve
+  stale CSS after deploy.
+- Don't skip per-page meta when adding a new HTML page. Description,
+  OG, Twitter Card, canonical, and theme-color are required — mirror
+  the shape from `scripts/render-docs.py` `head()`.
+- Don't push raw secrets or local-only configs. `.claude/settings.local.json`
+  is already gitignored; check for Cloudflare/GitHub tokens before
+  committing.
