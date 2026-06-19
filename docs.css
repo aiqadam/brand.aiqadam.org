@@ -926,3 +926,61 @@ dialog.lightbox .lightbox-close svg { width: 18px; height: 18px; }
   color: var(--muted-foreground);
   font-style: italic;
 }
+
+/* ---------- Fork-me-on-GitHub corner ---------- */
+/* Reserves 80px on the right of the header so the corner doesn't overlap the theme toggle. */
+.app-header-inner { padding-right: 80px; }
+@media (max-width: 640px) {
+  .app-header-inner { padding-right: 56px; }
+}
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  display: block;
+  line-height: 0;
+  text-decoration: none;
+}
+.github-corner svg {
+  display: block;
+  width: 80px;
+  height: 80px;
+  fill: var(--primary);
+  color: var(--primary-foreground);
+}
+.github-corner .octo-arm { transform-origin: 130px 106px; }
+.github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+@keyframes octocat-wave {
+  0%, 100% { transform: rotate(0); }
+  20%, 60% { transform: rotate(-25deg); }
+  40%, 80% { transform: rotate(10deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .github-corner:hover .octo-arm { animation: none; }
+}
+@media (max-width: 640px) {
+  .github-corner svg { width: 56px; height: 56px; }
+}
+
+/* ---------- AI Qadam Build recognition badge ---------- */
+/* Used in footers of AI Qadam Build projects, including this site itself. */
+.aiq-build-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  transition: color 150ms var(--ease-out);
+}
+.aiq-build-badge:hover { color: var(--foreground); }
+.aiq-build-badge .aiq-build-mark {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+.doc-footer .build-tag { margin-top: 8px; }
