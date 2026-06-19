@@ -4,9 +4,11 @@
 > condensed mental model you need before editing.
 
 This repo is the source for **`brand.aiqadam.org`** — the canonical brand and
-design reference across the AI Qadam umbrella (Events, Build, People,
-Education, Chapters, Merch). It's static HTML + CSS + a few build scripts —
-no framework, no bundler, no toolchain you need to install.
+design reference across the AI Qadam umbrella: the four streams (Events,
+Education, People, Accelerator), the Build infrastructure that powers
+them, and the chapter and merch surfaces that carry the brand. It's
+static HTML + CSS + a few build scripts — no framework, no bundler, no
+toolchain you need to install.
 
 ## Architecture
 
@@ -26,9 +28,10 @@ system.html         → Pillar 2 — Design system
   patterns, screen mockups, navigation rules. Used by engineers shipping
   product surfaces.
 
-Per-product (Events, Build, People, Education, Chapters, Merch) overrides
-live inside the relevant pillar — under Brand for off-screen specifics,
-under Design system for product UI. There is no separate Products pillar.
+Per-stream (Events, Education, People, Accelerator) and Build-infrastructure
+overrides live inside the relevant pillar — under Brand for off-screen
+specifics, under Design system for product UI. There is no separate
+Streams or Build pillar at the top level.
 
 ## Where new content goes
 
@@ -37,8 +40,9 @@ Decision tree:
 - Touches print, merch, decks, posters, social, off-screen? → **Brand**
 - Touches a button, component, page layout, digital pattern? → **Design
   system**
-- Specific to one product stream (Events vs Build vs Merch)? → goes
-  inside whichever pillar fits, as a subsection
+- Specific to one stream (Events / Education / People / Accelerator) or
+  to Build infrastructure? → goes inside whichever pillar fits, as a
+  subsection
 - Doesn't fit either? Talk to Binali.
 
 Cross-link between pillars rather than duplicate. e.g. `system.html` links
@@ -187,6 +191,16 @@ Three artefacts cover non-overlapping material:
 When adding new files, file under the right category. Don't try to ship
 one LICENSE for everything — it either over-restricts the code or
 under-protects the brand.
+
+**`LICENSE-content` is the AI-Qadam-wide canonical text.** Other AI
+Qadam repos (e.g. `build.aiqadam.org`) carry a short `LICENSE-content`
+pointer file declaring CC BY 4.0 and linking to
+`brand.aiqadam.org/license-content.html` for the canonical terms. Keep
+the prose in `LICENSE-content` here generic across all AI Qadam
+repositories — don't re-scope it to brand-only. After editing the
+prose, run `scripts/render-docs.py` to regenerate
+`license-content.html`; consumer repos pick up the new text
+automatically through the cross-origin link.
 
 ## Source documents
 

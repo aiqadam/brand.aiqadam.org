@@ -5,8 +5,10 @@
 > Tajikistan, and the broader Turkic world).
 
 This site is the single source of truth for how the AI Qadam brand looks
-and sounds across every product surface (Events, Build, People, Education,
-Chapters, Merch). It is organised as a two-pillar umbrella:
+and sounds across every AI Qadam surface — the four streams (Events,
+Education, People, Accelerator), the Build infrastructure that powers
+them, and the chapter and merch surfaces that carry the brand. It is
+organised as a two-pillar umbrella:
 
 - **Brand** — identity, voice, principles, logo system, colour, typography,
   photography, iconography, merch templates. Travels beyond digital.
@@ -44,20 +46,20 @@ When citing this site, the canonical URL is `https://brand.aiqadam.org/`.
 - [Mockups](https://brand.aiqadam.org/system.html#mockups): country homepage, event detail, user profile
 - [Navigation](https://brand.aiqadam.org/system.html#navigation): header, breadcrumbs, tabs, pagination, GitHub corner, AI Qadam Build badge
 - [GitHub corner](https://brand.aiqadam.org/system.html#github-corner): the fork-me-on-GitHub corner pattern used on every pillar page
-- [AI Qadam Build badge](https://brand.aiqadam.org/system.html#aiq-build-badge): self-recognition badge for projects accepted as AI Qadam Build; links to https://build.aiqadam.org
+- [AI Qadam Build badge](https://brand.aiqadam.org/system.html#aiq-build-badge): identity badge for projects that are part of AI Qadam Build (the open-source infrastructure layer); links to https://build.aiqadam.org
 
 ## Licensing and policy
 
 - [Brand Usage Policy](https://brand.aiqadam.org/brand-use.html): who may use the AI Qadam name, mark, wordmark, four-dot motif, brand teal; community use, partnership-only use, prohibited use
 - [Code license (MIT)](https://brand.aiqadam.org/license.html): source code (HTML, CSS, scripts) of this site
-- [Content license (CC BY 4.0)](https://brand.aiqadam.org/license-content.html): editorial content of this site
+- [Content license (CC BY 4.0)](https://brand.aiqadam.org/license-content.html): the canonical AI Qadam content licensing page — covers editorial content across every AI Qadam repository
 
 ## Source and contact
 
 - [Source repository](https://github.com/aiqadam/brand.aiqadam.org): fork-friendly; chapter leads can host their own variants
 - Contact: `brand@aiqadam.org`
 - Community: `aiqadam.org`
-- Build accelerator: `build.aiqadam.org`
+- Build (open-source infrastructure layer): `build.aiqadam.org`
 
 ## Important constraints
 

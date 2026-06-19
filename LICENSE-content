@@ -1,10 +1,11 @@
-AI Qadam Brand Guidelines — documentation content
+AI Qadam — editorial content licensing
 Copyright (c) 2026 AI Qadam Community
 
-The editorial content of this repository — the prose, copy, examples,
-explanations, and manifesto excerpts visible in the *.html and *.md
-files — is licensed under the Creative Commons Attribution 4.0
-International License (CC BY 4.0).
+This is the canonical AI Qadam content-licensing page. The editorial
+content authored across AI Qadam repositories — the prose, copy,
+examples, explanations, governance documents, and manifesto excerpts
+visible in the *.html and *.md files — is licensed under the Creative
+Commons Attribution 4.0 International License (CC BY 4.0).
 
 You are free to:
   - Share — copy and redistribute the material in any medium or format
@@ -19,14 +20,21 @@ Under the following terms:
 
 This license does NOT cover:
   - The AI Qadam name, marks, wordmark, four-dot motif, brand teal, or
-    any derivative of the brand identity. See BRAND-USE.md.
-  - Source code (CSS, HTML markup, JavaScript, scripts). See LICENSE.
+    any derivative of the brand identity. See the Brand Usage Policy
+    (https://brand.aiqadam.org/brand-use.html).
+  - Source code (CSS, HTML markup, JavaScript, scripts) in any AI
+    Qadam repository. See each repo's LICENSE file (MIT).
   - Photography and any third-party assets, which retain their
     original copyright.
+
+Each AI Qadam repository that ships substantive editorial content
+carries its own short `LICENSE-content` file declaring CC BY 4.0 and
+pointing back here for the canonical terms — single source of truth,
+no drift across repos.
 
 Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
 Human-readable summary: https://creativecommons.org/licenses/by/4.0/
 
 Attribution example:
-    "Based on AI Qadam Brand Guidelines (https://brand.aiqadam.org),
-     © AI Qadam Community, CC BY 4.0."
+    "Based on AI Qadam [repository name] content
+     (https://[repo].aiqadam.org), © AI Qadam Community, CC BY 4.0."

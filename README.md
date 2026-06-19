@@ -1,8 +1,9 @@
 # AI Qadam Brand Guidelines
 
 Source for **[brand.aiqadam.org](https://brand.aiqadam.org)** — the canonical
-brand and design reference across the AI Qadam umbrella (Events, Build,
-People, Education, Chapters, Merch).
+brand and design reference across the AI Qadam umbrella: the four streams
+(Events, Education, People, Accelerator), the Build infrastructure that
+powers them, and the chapter and merch surfaces that carry the brand.
 
 Static HTML + CSS. No framework, no bundler. Fork it, host it.
 

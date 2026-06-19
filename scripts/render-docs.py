@@ -229,7 +229,7 @@ text_page(
     ROOT / "LICENSE-content",
     ROOT / "license-content.html",
     title="Content · CC BY 4.0",
-    lead="Creative Commons Attribution 4.0 International licence for the editorial prose — the manifesto excerpts, examples and explanations that read like sentences. Brand assets and source code are licensed separately.",
+    lead="The canonical AI Qadam content licence — Creative Commons Attribution 4.0 International, covering editorial prose, governance documents, and manifesto excerpts across every AI Qadam repository. Each repo carries a short LICENSE-content file pointing here; this is the source of truth. Brand assets and source code are licensed separately.",
     eyebrow="Legal · Content",
-    description="Creative Commons Attribution 4.0 license covering the editorial content of brand.aiqadam.org. Brand assets and source code are governed separately.",
+    description="Canonical AI Qadam content licensing (CC BY 4.0) — covers editorial prose, governance documents, and manifesto excerpts across all AI Qadam repositories. Brand assets and source code are governed separately.",
 )
