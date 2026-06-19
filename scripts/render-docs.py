@@ -98,15 +98,19 @@ def header() -> str:
 
 FOOTER = """<footer class="doc-footer">
   <div class="container">
-    <div class="row">AI Qadam Brand Guidelines · v1 · last updated 2026-06-19</div>
+    <div class="row">AI Qadam Brand Guidelines · v1 · 2026-06-19 · <a href="mailto:brand@aiqadam.org">brand@aiqadam.org</a> · <a href="https://aiqadam.org">aiqadam.org</a></div>
     <div class="row">
-      <a href="license.html">Code · MIT</a>
-      &nbsp;·&nbsp;
-      <a href="brand-use.html">Brand · © AI Qadam — usage policy</a>
-      &nbsp;·&nbsp;
-      <a href="license-content.html">Content · CC BY 4.0</a>
+      <details class="footer-licenses">
+        <summary>Licenses</summary>
+        <div class="licenses-list">
+          <a href="license.html">Code · MIT</a>
+          &nbsp;·&nbsp;
+          <a href="brand-use.html">Brand · © AI Qadam — usage policy</a>
+          &nbsp;·&nbsp;
+          <a href="license-content.html">Content · CC BY 4.0</a>
+        </div>
+      </details>
     </div>
-    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:brand@aiqadam.org">brand@aiqadam.org</a></div>
   </div>
 </footer>
 """

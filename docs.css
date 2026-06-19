@@ -440,6 +440,12 @@ html { scroll-padding-top: 80px; scroll-behavior: smooth; }
 .doc-footer .row + .row { margin-top: 8px; }
 .doc-footer a { color: var(--muted-foreground); border-bottom: 1px solid transparent; transition: color 150ms var(--ease-out), border-color 150ms var(--ease-out); }
 .doc-footer a:hover { color: var(--foreground); border-bottom-color: var(--border); }
+.doc-footer details.footer-licenses { display: inline-block; }
+.doc-footer details.footer-licenses summary { cursor: pointer; list-style: none; display: inline-block; }
+.doc-footer details.footer-licenses summary::-webkit-details-marker { display: none; }
+.doc-footer details.footer-licenses summary::after { content: " ▾"; font-size: 10px; opacity: 0.6; margin-left: 4px; }
+.doc-footer details.footer-licenses[open] summary::after { content: " ▴"; }
+.doc-footer details.footer-licenses .licenses-list { margin-top: 8px; }
 
 /* ---------- Form preview ---------- */
 .form-row { margin-bottom: 16px; }
