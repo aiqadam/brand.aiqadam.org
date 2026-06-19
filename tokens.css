@@ -65,6 +65,14 @@
   --badge-special:  oklch(0.65 0.23 295);
   --streak:         oklch(0.7 0.2 35);
 
+  /* Logo — drive inline SVG fills. Static SVG files keep their hex fallbacks
+     so /brand/*.svg works in <img>, og:image, favicon. When inlined into HTML
+     these vars take over and pick up the active theme.
+     Letter counters are hollow (fill-rule:evenodd compound paths), so no
+     inset token is needed — whatever surface is behind the logo shows through. */
+  --aiq-logo-teal: var(--primary);
+  --aiq-logo-dark: var(--foreground);
+
   /* Fonts */
   --font-display: "Geist", system-ui, -apple-system, sans-serif;
   --font-sans:    "Inter", system-ui, -apple-system, sans-serif;

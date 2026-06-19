@@ -49,6 +49,56 @@
   margin-left: 4px;
   letter-spacing: 0;
 }
+
+/* ---------- Logo: mark (footprint only) ---------- */
+/* Use inside .brand for nav, favicon-context, or any compact surface.
+   Combine with .brand-mark to inherit the 24px sizing slot, or use the
+   .brand-mark-logo size modifiers below for stand-alone placements. */
+.brand-mark.logo {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  width: 28px;
+  height: 28px;
+}
+.brand-mark.logo svg,
+.brand-mark.logo img,
+.brand-mark-logo svg,
+.brand-mark-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.brand-mark-logo {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.brand-mark-logo.sm { width: 20px; height: 20px; }
+.brand-mark-logo.md { width: 28px; height: 28px; }
+.brand-mark-logo.lg { width: 40px; height: 40px; }
+.brand-mark-logo.xl { width: 64px; height: 64px; }
+
+/* ---------- Logo: full (footprint + AI QADAM wordmark) ---------- */
+/* Splash screens, hero surfaces, marketing. Sizes are width-driven;
+   height scales automatically since viewBox is ~1:1. */
+.brand-logo {
+  display: inline-block;
+  line-height: 0;
+  flex-shrink: 0;
+}
+.brand-logo svg,
+.brand-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.brand-logo.sm { width: 96px; }
+.brand-logo.md { width: 160px; }
+.brand-logo.lg { width: 240px; }
+.brand-logo.xl { width: 360px; }
 .app-nav {
   display: flex;
   align-items: center;

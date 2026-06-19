@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand · AI Qadam Guidelines</title>
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="container app-header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark logo" aria-hidden="true">
+        <img src="brand/logo-mark.svg" alt="">
+      </span>
+      AI Qadam
+      <span class="brand-suffix">brand / v1</span>
+    </a>
+    <nav class="app-nav">
+      <a href="index.html">Overview</a>
+      <a href="brand.html" class="active">Brand</a>
+      <a href="system.html">Design system</a>
+      <a href="products.html">Products</a>
+    </nav>
+    <div class="header-right">
+      <button class="btn btn-ghost btn-icon" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<div class="container">
+  <section class="doc-hero">
+    <h1>Brand</h1>
+    <p class="tagline">Who we are, how we sound, how we look. Pillar 1 of the AI Qadam guidelines — applies everywhere, from a Telegram post to a printed conference badge.</p>
+    <div class="meta-row">
+      <span class="item"><a href="index.html" style="color: var(--primary);">← Guidelines overview</a></span>
+      <span class="item">Pillar 01</span>
+      <span class="item">Last updated 2026-06-19</span>
+    </div>
+  </section>
+
+  <div class="toc-layout">
+    <aside class="toc" aria-label="Table of contents">
+      <p class="toc-label">In this pillar</p>
+      <a href="#brand" class="section">Brand</a>
+      <a href="#identity" class="sub">Identity</a>
+      <a href="#logo" class="sub">Logo</a>
+      <a href="#brand-color" class="sub">Brand colour</a>
+      <a href="#voice" class="sub">Voice &amp; principles</a>
+      <a href="#wordmark" class="sub">Writing the name</a>
+
+      <a href="#palette" class="section">Colour palette</a>
+      <a href="#colors" class="sub">Tokens</a>
+
+      <a href="#type" class="section">Typography</a>
+      <a href="#typography" class="sub">Scale &amp; specimens</a>
+
+      <a href="#photography" class="section">Photography</a>
+      <a href="#iconography" class="section">Iconography</a>
+      <a href="#merch" class="section">Merch templates</a>
+    </aside>
+
+    <main>
+      <section class="docs-section" id="brand" data-screen-label="01 Brand">
+        <p class="section-eyebrow">01 — Brand</p>
+        <h2 class="section-title display">Who we are, on a page.</h2>
+        <p class="section-lead">AI Qadam isn't a brand bolted on top of a project — it's the visible edge of a community of practitioners building AI in Central Asia. Everything in this system serves that. <em>Qadam</em> means a step forward in the Turkic languages; the mark is one.</p>
+
+        <!-- Identity -->
+        <h3 class="subsection-title" id="identity">Identity</h3>
+        <p class="subsection-meta">What goes on slide 1, in the bio, in the elevator pitch.</p>
+        <div class="brand-card">
+          <p class="brand-positioning">The AI community infrastructure for Central Asia.</p>
+          <p class="brand-tagline">Let's make a Qadam toward trust.</p>
+          <div class="brand-tags">
+            <span class="tag">UZ</span>
+            <span class="tag">KZ</span>
+            <span class="tag">KG</span>
+            <span class="tag">TJ</span>
+            <span class="tag">→ Turkic world</span>
+          </div>
+          <p class="brand-hashtag mono">#AIQadam</p>
+        </div>
+
+        <!-- Logo -->
+        <h3 class="subsection-title" id="logo">Logo</h3>
+        <p class="subsection-meta">Two lockups, one source. The mark is the silhouette alone; the full lockup adds the AI QADAM wordmark below.</p>
+
+        <div class="logo-showcase two-col">
+          <div class="logo-cell">
+            <div class="logo-cell-stage">
+              <div class="brand-mark-logo xl"><img src="brand/logo-mark.svg" alt=""></div>
+            </div>
+            <div class="logo-cell-meta">
+              <p class="cell-name">Mark</p>
+              <p class="cell-desc">The footprint on its own. Use for navbars, favicons, app icons, in-product avatars — anywhere small, square, or where the wordmark would just become noise.</p>
+              <code class="codechip">brand/logo-mark.svg</code>
+            </div>
+          </div>
+          <div class="logo-cell">
+            <div class="logo-cell-stage">
+              <div class="brand-logo md" aria-label="AI Qadam">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 431 432" fill="none" role="img" aria-hidden="true">
+                  <style>
+                    .aiq-logo-teal { fill: var(--aiq-logo-teal, #3CA29E); }
+                    .aiq-logo-dark { fill: var(--aiq-logo-dark, #373A42); fill-rule: evenodd; }
+                  </style>
+                  <path class="aiq-logo-teal" d="M139.184 0.00725804C144.432 -0.117117 148.69 1.35241 152.72 4.76898C157.749 9.1171 160.834 15.2931 161.292 21.9252C162.035 31.5894 158.219 37.3056 152.386 44.1655C152.123 51.7317 152.238 60.959 152.527 68.5102L152.793 68.3217C156.516 65.7096 160.544 63.7242 164.981 62.6655C172.46 60.8808 203.916 60.548 211.564 61.9409C236.249 66.4361 279.47 91.7311 293.595 112.412C296.495 116.657 298.424 121.276 299.283 126.35C300.633 134.321 299.917 143.279 299.132 151.309C297.451 168.568 294.017 185.42 290.455 202.366C288.323 212.493 285.895 222.669 284.62 232.944C282.701 248.447 285.042 264.359 282.132 279.671C278.882 296.756 269.057 310.765 254.807 320.497C248.492 324.593 241.451 327.443 234.064 328.887C218.074 331.881 200.145 328.665 186.867 319.215C165.193 303.793 158.063 279.69 160.081 254.184C160.743 245.812 161.701 238.587 164.596 230.622C166.414 225.766 168.588 221.047 171.102 216.51C175.061 209.323 182.868 199.015 181.553 190.737C179.737 179.303 164.513 164.392 156.245 156.51C150.042 150.925 143.597 146.053 138.064 139.744C126.058 126.603 123.479 104.369 132.157 88.893C137.811 78.8093 140.719 75.8673 139.725 63.602C139.319 58.5893 139.988 53.1905 138.9 47.8276C135.981 46.5951 133.014 45.3729 130.442 43.5014C114.355 31.7949 118.242 3.2466 139.184 0.00725804ZM238.354 85.8022C225.423 79.2188 213.032 74.2384 198.326 74.9399C191.547 75.2633 184.35 74.7989 177.493 75.0414C142.977 76.3458 127.151 113.448 153.465 136.973C167.964 149.935 192.361 169.718 194.348 190.637C195.756 205.462 182.828 219.117 177.825 232.065C162.629 273.727 179.534 320.274 229.795 316.961C230.073 316.946 230.348 316.924 230.626 316.899C230.338 303.849 230.101 286.902 230.57 273.855C223.898 268.427 220.761 260.955 226.914 253.558C229.189 250.777 232.511 249.055 236.098 248.802C243.901 248.24 249.636 254.071 249.929 261.699C250.142 267.242 247.288 270.924 243.076 274.071C242.838 278.149 242.866 282.386 242.938 286.48C243.088 295.192 242.861 304.011 243.145 312.711C255.517 305.699 264.908 294.768 268.63 280.852C272.983 264.593 269.714 247.077 272.086 230.505C276.223 197.226 288.642 163.907 286.398 129.992C286.217 127.241 284.748 123.608 283.42 121.254C282.666 119.946 281.88 118.66 281.051 117.398C280.117 127.459 278.332 134.671 270.135 141.401C266.979 144.019 263.276 145.891 259.298 146.877C254.623 147.999 247.738 147.774 242.779 147.77L222.157 147.749C218.279 147.746 213.488 147.62 209.684 147.898C208.24 149.484 207.204 150.86 207.331 153.108C207.689 159.45 218.764 166.768 221.145 174.42C223.23 181.124 222.33 201.483 222.333 209.59L222.31 220.151C238.97 220.249 249.611 222.355 247.723 201.868C247.42 198.573 247.704 193.829 247.601 190.34C240.892 184.486 237.41 176.443 244.298 168.96C246.751 166.27 250.201 164.7 253.839 164.618C266.954 164.412 272.104 179.87 262.317 188.931C261.57 189.621 260.798 190.281 260.001 190.91C260.073 201.03 261.954 214.563 255.673 223.102C246.813 235.142 230.682 232.165 217.336 232.555C212.445 237.014 202.877 244.861 203.094 251.789C203.308 258.608 202.813 266.049 203.269 272.818C209.325 278.036 211.916 285.167 205.659 291.608C203.476 293.839 200.484 295.096 197.361 295.096C194.048 295.087 190.752 293.546 188.483 291.159C186.248 288.837 185.092 285.68 185.298 282.464C185.563 278.614 187.681 275.568 190.5 273.102C190.53 266.499 189.399 247.977 191.475 243.024C192.986 239.418 196.025 236.459 198.754 233.752C202.068 230.468 207.645 226.18 209.095 221.746C209.657 220.029 209.695 218.162 209.71 216.37C209.765 209.608 209.525 202.84 209.555 196.076C209.578 190.972 210.367 184.118 209.306 179.2C207.351 170.131 193.02 164.862 195.007 150.179C195.502 146.517 197.32 142.694 199.936 140.04C202.128 137.852 204.896 136.332 207.918 135.655C211.141 134.909 219.085 135.206 222.776 135.221L246.232 135.307C249.582 135.318 254.616 135.648 257.701 134.524C270.67 129.794 268.448 116.107 268.204 105.047C262.782 100.718 257.054 96.7803 251.073 93.2651C251.101 101.415 252.26 108.449 245.87 114.816C239.298 121.362 229.598 119.448 221.067 119.676C210.363 119.963 199.417 119.357 188.707 119.727C185.73 123.265 182.863 126.176 177.869 126.581C174.345 126.861 170.864 125.653 168.27 123.25C158.937 114.752 164.602 99.1611 177.352 99.517C183.045 99.6761 186.689 102.916 189.288 107.671L218.904 107.509C223.954 107.487 229.161 107.667 234.164 107.095C235.254 106.965 236.185 106.29 236.954 105.567C238.176 104.42 238.386 102.858 238.414 101.252C238.495 96.1075 238.335 90.9476 238.354 85.8022Z"/>
+                  <path class="aiq-logo-teal" d="M188.806 9.06475C198.057 8.53944 206.004 15.5648 206.617 24.8101C207.231 34.0554 200.281 42.0688 191.042 42.7701C181.678 43.4807 173.532 36.4166 172.91 27.046C172.289 17.6757 179.43 9.59725 188.806 9.06475Z"/>
+                  <path class="aiq-logo-teal" d="M231.132 21.0719C239.054 20.541 245.917 26.5029 246.498 34.4185C247.079 42.3341 241.161 49.2348 233.248 49.8673C225.267 50.5054 218.289 44.5219 217.701 36.5341C217.114 28.5463 223.142 21.6073 231.132 21.0719Z"/>
+                  <path class="aiq-logo-teal" d="M266.742 39.6966C273.811 39.4325 279.745 44.9575 279.989 52.0244C280.236 59.091 274.692 65.0122 267.626 65.2366C260.586 65.46 254.692 59.9453 254.451 52.9063C254.207 45.8675 259.704 39.9591 266.742 39.6966Z"/>
+                  <path class="aiq-logo-teal" d="M293.629 63.2102C299.82 62.4271 305.486 66.7805 306.323 72.9649C307.161 79.1489 302.857 84.853 296.682 85.7455C290.429 86.6496 284.636 82.2805 283.789 76.0183C282.939 69.7561 287.361 64.0033 293.629 63.2102Z"/>
+                  <path class="aiq-logo-dark" d="M22.39 363.064L36.8687 363.077C38.0341 367.258 41.0394 374.918 42.5769 379.18L52.9194 407.864C54.9175 413.411 57.28 419.564 59.0141 425.155C54.76 425.196 50.5059 425.202 46.2522 425.171L41.8634 411.527H37.5481L17.5131 411.521C16.0016 416.021 14.3878 420.627 13.0781 425.174C8.7475 425.211 4.33781 425.158 0 425.149C5.65938 410.671 10.4803 395.571 16.0006 381.014C18.1922 375.233 20.5166 368.936 22.39 363.064Z M29.4493 376.902C30.6328 377.762 36.7828 397.521 37.9006 400.724L30.9856 400.771L21.5693 400.73L29.4493 376.902Z"/>
+                  <path class="aiq-logo-dark" d="M68.2885 363.086L80.17 363.089L80.1525 424.795C79.3719 425.495 70.0291 425.198 68.2756 425.186L68.2885 363.086Z"/>
+                  <path class="aiq-logo-dark" d="M138.732 362.539C163.06 362.298 175.169 384.052 167.787 406.392C166.727 409.602 164.295 412.845 162.305 415.542L169.134 424.123C166.219 426.598 163.271 429.036 160.293 431.436C158.917 429.658 155.109 424.552 153.685 423.339L153.023 423.455C149.473 424.733 145.76 425.508 141.994 425.758C133.29 426.361 125.887 424.736 119.323 419.08C103.313 405.286 106.042 374.755 125.674 365.561C130.415 363.339 133.612 362.792 138.732 362.539Z M138.227 373.765C157.358 372.875 161.254 392.693 155.301 407.034C152.659 403.718 149.933 400.381 147.442 396.956C144.684 399.318 141.62 401.734 138.795 404.05L141.165 407.037C142.801 409.237 144.614 411.4 146.349 413.531C145.477 413.737 144.599 413.918 143.716 414.075C132.018 416.043 122.691 410.753 121.127 398.365C119.595 386.225 125.053 375.143 138.227 373.765Z"/>
+                  <path class="aiq-logo-dark" d="M195.933 363.039C200.721 363.067 205.509 363.067 210.296 363.045L232.798 425.202C228.498 425.208 224.201 425.192 219.901 425.155L215.351 411.527H210.439L190.863 411.542C189.422 416.111 187.934 420.661 186.4 425.198L173.639 425.148C176.085 417.645 179.112 409.723 181.802 402.248L195.933 363.039Z M202.88 376.893C204.195 377.724 210.348 397.496 211.431 400.689C208.657 400.761 205.799 400.749 203.017 400.774L194.938 400.733C197.541 392.771 200.188 384.824 202.88 376.893Z"/>
+                  <path class="aiq-logo-dark" d="M241.445 363.084C256.217 363.034 274.507 360.753 285.854 371.984C297.964 383.975 297.658 404.193 285.923 416.387C276.561 424.909 268.445 425.193 256.214 425.19C251.307 425.168 246.401 425.19 241.495 425.259C241.261 418.237 241.429 410.487 241.429 403.393L241.445 363.084Z M253.379 374.066C261.358 373.856 270.279 373.681 276.745 379.137C283.517 384.853 284.054 395.919 280.967 403.678C280.179 405.65 278.989 407.141 277.617 408.706C270.461 414.859 262.326 413.803 253.386 413.762L253.379 374.066Z"/>
+                  <path class="aiq-logo-dark" d="M319.767 363.021C324.379 363.15 329.367 363.072 334.011 363.084C336.317 370.24 339.511 378.453 342.082 385.603L356.354 425.187L343.498 425.19L338.961 411.528L334.173 411.522L314.804 411.568C313.198 416.084 311.679 420.634 310.248 425.209L297.282 425.153C304.864 404.537 312.029 383.537 319.767 363.021Z M326.898 376.678C328.536 379.118 333.729 396.5 335.139 400.737L327.307 400.771L318.842 400.74C321.232 393.406 324.129 383.712 326.898 376.678Z"/>
+                  <path class="aiq-logo-dark" d="M364.773 363.092L380.307 363.046C385.792 376.83 391.998 391.042 397.761 404.777C403.454 391.73 408.917 376.474 414.348 363.08C419.614 363.005 425.051 363.074 430.329 363.074L430.317 425.18L418.42 425.177C418.192 417.624 418.354 409.236 418.351 401.621L418.307 381.874C413.426 393.733 408.464 405.558 403.42 417.349C399.573 417.374 395.723 417.367 391.876 417.33C386.836 405.505 381.726 393.711 376.551 381.946C376.798 387.052 376.657 393.049 376.654 398.23C376.676 407.217 376.648 416.205 376.567 425.189L364.823 425.167C364.561 418.702 364.782 410.539 364.782 403.927L364.773 363.092Z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="logo-cell-meta">
+              <p class="cell-name">Full lockup</p>
+              <p class="cell-desc">Footprint plus AI QADAM wordmark. Use for splash screens, hero blocks, decks, OG-images, printed merch — the surfaces where the name has to read.</p>
+              <code class="codechip">brand/logo-full.svg</code>
+            </div>
+          </div>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 40px;">Mark sizes</p>
+        <div class="logo-sizes">
+          <div class="size-cell"><div class="brand-mark-logo sm"><img src="brand/logo-mark.svg" alt=""></div><span>sm · 20px</span></div>
+          <div class="size-cell"><div class="brand-mark-logo md"><img src="brand/logo-mark.svg" alt=""></div><span>md · 28px</span></div>
+          <div class="size-cell"><div class="brand-mark-logo lg"><img src="brand/logo-mark.svg" alt=""></div><span>lg · 40px</span></div>
+          <div class="size-cell"><div class="brand-mark-logo xl"><img src="brand/logo-mark.svg" alt=""></div><span>xl · 64px</span></div>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 40px;">Don't</p>
+        <div class="dont-grid">
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't recolour. The mark <em>is</em> the brand teal — anything else reads as a different organisation.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't stretch, skew, or rotate. Use the SVG; it scales without loss.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't add shadows, glows, gradients, or outlines. The mark is flat.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't crop the four dots. They're part of the silhouette, not decoration.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't substitute the wordmark with a different typeface — it is the SVG, not Geist.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't place the mark on busy imagery. Let it sit on a flat surface with breathing room.</p></div>
+        </div>
+
+        <!-- Brand colour -->
+        <h3 class="subsection-title" id="brand-color">Brand colour</h3>
+        <p class="subsection-meta">One accent colour, tokenised. Everything else in the UI inherits from the neutral scale.</p>
+        <div class="brand-color-row">
+          <div class="brand-color-chip"></div>
+          <div class="brand-color-meta">
+            <p class="cell-name">Circuit teal</p>
+            <p class="cell-desc">The colour of the footprint. Used for primary actions, focus rings, brand accents, and selected states. Slightly brighter in dark mode so it reads with the same weight on either theme.</p>
+            <div class="brand-color-tokens">
+              <code class="codechip">--primary</code>
+              <code class="codechip">#3CA29E</code>
+              <code class="codechip">oklch(0.58 0.10 192)</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice -->
+        <h3 class="subsection-title" id="voice">Voice &amp; principles</h3>
+        <p class="subsection-meta">Seven principles from the community manifesto. Copy, design and product decisions all answer to these — when in doubt, pick the option that honours more of them.</p>
+        <div class="principle-grid">
+          <div class="principle">
+            <p class="principle-num">01</p>
+            <p class="principle-name">Honesty over hype</p>
+            <p class="principle-desc">No promoting what doesn't exist or lacks real expert backing. Honesty over loud promises.</p>
+          </div>
+          <div class="principle">
+            <p class="principle-num">02</p>
+            <p class="principle-name">Practice over theory</p>
+            <p class="principle-desc">Speakers share what they did themselves. A real case beats a polished framework.</p>
+          </div>
+          <div class="principle">
+            <p class="principle-num">03</p>
+            <p class="principle-name">Quality over reach</p>
+            <p class="principle-desc">We measure usefulness, not turnout. 80 engaged people matter more than 500 indifferent ones.</p>
+          </div>
+          <div class="principle">
+            <p class="principle-num">04</p>
+            <p class="principle-name">The right to fail</p>
+            <p class="principle-desc">We talk about failures openly. An honest post-mortem teaches more than a success story.</p>
+          </div>
+          <div class="principle">
+            <p class="principle-num">05</p>
+            <p class="principle-name">Community, not channel</p>
+            <p class="principle-desc">Partners invest in people and the community. We're not an advertising venue.</p>
+          </div>
+          <div class="principle">
+            <p class="principle-num">06</p>
+            <p class="principle-name">Multilingual by default</p>
+            <p class="principle-desc">We speak the languages of the region — state languages, Russian, English — and respect each member's choice.</p>
+          </div>
+          <div class="principle">
+            <p class="principle-num">07</p>
+            <p class="principle-name">People first</p>
+            <p class="principle-desc">The community exists for the benefit of its participants, not for monetising them through outside interests.</p>
+          </div>
+        </div>
+
+        <!-- Wordmark / naming -->
+        <h3 class="subsection-title" id="wordmark">Writing the name</h3>
+        <p class="subsection-meta">Small rules, applied consistently.</p>
+        <div class="naming-grid two-col">
+          <div class="naming-cell">
+            <p class="cell-name">In prose</p>
+            <p class="naming-do mono">AI Qadam</p>
+            <p class="cell-desc">Title case. Two words. The <em>Q</em> in <em>Qadam</em> is hard, like in <em>Qazaq</em>.</p>
+          </div>
+          <div class="naming-cell">
+            <p class="cell-name">In the lockup</p>
+            <p class="naming-do mono">AI QADAM</p>
+            <p class="cell-desc">All caps, locked together with the mark. Only inside the logo — never in body copy.</p>
+          </div>
+          <div class="naming-cell">
+            <p class="cell-name">Hashtag</p>
+            <p class="naming-do mono">#AIQadam</p>
+            <p class="cell-desc">One token, camel case. Used on every public post.</p>
+          </div>
+          <div class="naming-cell">
+            <p class="cell-name">Don't</p>
+            <p class="naming-dont mono">AI-Qadam · AIQadam · ai qadam · AI Kadam</p>
+            <p class="cell-desc">Hyphens, mashed-up casing, lowercase and phonetic spellings are all out.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="palette">
+        <p class="section-eyebrow">02 — Colour palette</p>
+        <h2 class="section-title display">Colour, by surface and role.</h2>
+        <p class="section-lead">Brand teal is the only colour with brand meaning. Everything else is a neutral scale plus four semantic accents (success, warning, destructive, live). Tokens are normative — don't invent new ones.</p>
+
+        <div id="colors">
+          <h3 class="subsection-title">Color tokens</h3>
+          <p class="subsection-meta">— current theme: <span id="theme-state" style="color: var(--foreground);">dark</span>. Toggle with the icon in the header.</p>
+
+          <p class="codechip" style="display: inline-block; margin-bottom: 12px;">Surface</p>
+          <div class="swatch-grid" style="margin-bottom: 32px;">
+            <div class="swatch"><div class="swatch-color" style="background: var(--background);"></div><div class="swatch-meta"><span class="swatch-name">background</span><span class="swatch-value" data-token="--background"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--foreground);"></div><div class="swatch-meta"><span class="swatch-name">foreground</span><span class="swatch-value" data-token="--foreground"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--card);"></div><div class="swatch-meta"><span class="swatch-name">card</span><span class="swatch-value" data-token="--card"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--muted);"></div><div class="swatch-meta"><span class="swatch-name">muted</span><span class="swatch-value" data-token="--muted"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--muted-foreground);"></div><div class="swatch-meta"><span class="swatch-name">muted-foreground</span><span class="swatch-value" data-token="--muted-foreground"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--border);"></div><div class="swatch-meta"><span class="swatch-name">border</span><span class="swatch-value" data-token="--border"></span></div></div>
+          </div>
+
+          <p class="codechip" style="display: inline-block; margin-bottom: 12px;">Brand &amp; semantic</p>
+          <div class="swatch-grid" style="margin-bottom: 32px;">
+            <div class="swatch"><div class="swatch-color" style="background: var(--primary);"></div><div class="swatch-meta"><span class="swatch-name">primary · indigo</span><span class="swatch-value" data-token="--primary"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--ring);"></div><div class="swatch-meta"><span class="swatch-name">ring</span><span class="swatch-value" data-token="--ring"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--success);"></div><div class="swatch-meta"><span class="swatch-name">success</span><span class="swatch-value" data-token="--success"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--warning);"></div><div class="swatch-meta"><span class="swatch-name">warning</span><span class="swatch-value" data-token="--warning"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--destructive);"></div><div class="swatch-meta"><span class="swatch-name">destructive</span><span class="swatch-value" data-token="--destructive"></span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--live-indicator);"></div><div class="swatch-meta"><span class="swatch-name">live-indicator</span><span class="swatch-value">oklch(0.7 0.2 145)</span></div></div>
+          </div>
+
+          <p class="codechip" style="display: inline-block; margin-bottom: 12px;">Badge tiers &amp; streak</p>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="background: var(--badge-bronze);"></div><div class="swatch-meta"><span class="swatch-name">badge-bronze</span><span class="swatch-value">oklch(0.65 0.12 50)</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--badge-silver);"></div><div class="swatch-meta"><span class="swatch-name">badge-silver</span><span class="swatch-value">oklch(0.75 0.02 250)</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--badge-gold);"></div><div class="swatch-meta"><span class="swatch-name">badge-gold</span><span class="swatch-value">oklch(0.82 0.15 85)</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--badge-special);"></div><div class="swatch-meta"><span class="swatch-name">badge-special</span><span class="swatch-value">oklch(0.65 0.23 295)</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--streak);"></div><div class="swatch-meta"><span class="swatch-name">streak</span><span class="swatch-value">oklch(0.7 0.2 35)</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="type">
+        <p class="section-eyebrow">03 — Typography</p>
+        <h2 class="section-title display">Three families, one voice.</h2>
+        <p class="section-lead">Geist for display (titles, hero, brand). Inter for everything you read in a paragraph. JetBrains Mono for technical detail (times, IDs, tags). Both Cyrillic and Latin must read equally well — Central Asia uses both.</p>
+
+        <div id="typography">
+          <h3 class="subsection-title">Type scale</h3>
+          <p class="subsection-meta">Geist (display) · Inter (body) · JetBrains Mono (technical). Both scripts must read equally well.</p>
+
+          <div class="type-row">
+            <div class="type-key">text-6xl<span class="px">60 / 64</span></div>
+            <div class="type-sample geist" style="font-size: 60px; line-height: 1; letter-spacing: -0.035em;">шагаем в&nbsp;будущее</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-4xl<span class="px">36 / 40</span></div>
+            <div class="type-sample geist" style="font-size: 36px; line-height: 1.1; letter-spacing: -0.025em;">The quick brown fox jumps over the lazy dog</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-3xl<span class="px">30 / 36</span></div>
+            <div class="type-sample geist" style="font-size: 30px; line-height: 1.2; letter-spacing: -0.02em;">Съешь же ещё этих мягких французских булок</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-2xl<span class="px">24 / 32</span></div>
+            <div class="type-sample geist" style="font-size: 24px; line-height: 1.33; letter-spacing: -0.015em;">AI Qadam · LLM Engineering in Production</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-xl<span class="px">20 / 30</span></div>
+            <div class="type-sample geist" style="font-size: 20px; line-height: 1.5; letter-spacing: -0.01em;">Card title — Computer Vision Day in Almaty</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-lg<span class="px">18 / 28</span></div>
+            <div class="type-sample inter" style="font-size: 18px; line-height: 1.55;">Lead paragraph — practitioners building real systems, not demos.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-base<span class="px">16 / 24</span></div>
+            <div class="type-sample inter" style="font-size: 16px; line-height: 1.5;">Body default. Съешь же ещё этих мягких французских булок, да выпей чаю.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-sm<span class="px">14 / 20</span></div>
+            <div class="type-sample inter" style="font-size: 14px; line-height: 1.43;">Secondary body, form labels, badges, helper text inside cards.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">text-xs<span class="px">12 / 16</span></div>
+            <div class="type-sample inter" style="font-size: 12px; color: var(--muted-foreground); line-height: 1.33;">Captions, metadata, timestamps — usually muted-foreground.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-key">mono · 14<span class="px">JetBrains</span></div>
+            <div class="type-sample mono" style="font-size: 14px;">14:00 — 18:00 · Tashkent · 142 going · #LLM #RAG</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="photography">
+        <p class="section-eyebrow">04 — Photography</p>
+        <h2 class="section-title display">Real rooms, real people.</h2>
+        <p class="section-lead">Photography for AI Qadam is documentary, not staged. Real speakers mid-sentence, real laptops, real Q&amp;A hands going up. Avoid stock-AI tropes (blue circuit brains, white robots, glowing data orbs). The honesty principle applies to images too.</p>
+
+        <p class="subsection-meta">Style guidelines — draft</p>
+        <div class="photo-grid">
+          <div class="photo-cell"><span class="photo-label">Documentary · meetup floor</span></div>
+          <div class="photo-cell"><span class="photo-label">Speaker mid-slide · natural light</span></div>
+          <div class="photo-cell"><span class="photo-label">Hands &amp; laptops · close crop</span></div>
+          <div class="photo-cell"><span class="photo-label">Room wide · audience visible</span></div>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 32px;">Don't</p>
+        <div class="dont-grid">
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>No AI-generated humans, robots, brain graphics, or glowing-data backgrounds.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>No corporate handshake shots, staged smiles, or empty boardroom posing.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>No heavy filters, vignettes, or duotone overlays — keep the colour honest.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>No watermarks. Photographer credit goes in caption, not on the image.</p></div>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 32px;">Photo library</p>
+        <div class="brand-card" style="background: var(--card); border: 1px dashed var(--border);">
+          <p class="brand-positioning" style="font-size: 18px;">Coming soon — curated photo bank for chapter leads &amp; partners.</p>
+          <p class="brand-tagline" style="font-style: normal;">After Meetup #2 (June 20, 2026) we'll publish the first batch. Until then, ask the country lead for raw assets.</p>
+        </div>
+      </section>
+
+      <section class="docs-section" id="iconography">
+        <p class="section-eyebrow">05 — Iconography</p>
+        <h2 class="section-title display">Lucide line · brand teal for accents.</h2>
+        <p class="section-lead">Product UI uses <a href="https://lucide.dev" style="color: var(--primary); border-bottom: 1px solid currentColor;">Lucide</a> at 2px stroke, 24×24 viewBox. For brand surfaces (decks, merch, posters) the footprint-with-dots motif from the logo is the only allowed pictogram — never duplicate it; never substitute it.</p>
+
+        <p class="subsection-meta">Product iconography — line, 2px stroke</p>
+        <div class="icon-grid">
+          <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg><span>Event</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Community</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg><span>Talk</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><span>Build</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>Edit</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>Chapter</span></div>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 32px;">Rules</p>
+        <div class="dont-grid">
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't fill brand-mark dots into other icons. The four-dot motif lives in the logo only.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't mix icon families. Lucide everywhere; never Heroicons + Phosphor + Lucide in one surface.</p></div>
+          <div class="dont-cell"><span class="dont-mark">✕</span><p>Don't recolour icons. Inherit <span class="codechip">currentColor</span> from text.</p></div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="merch">
+        <p class="section-eyebrow">06 — Merch templates</p>
+        <h2 class="section-title display">Wearables, swag, print.</h2>
+        <p class="section-lead">Merch is brand made tangible — the highest-stakes surface for our visual identity. Every item ships from one of the templates below. Don't deviate; don't add taglines that aren't in the approved list.</p>
+        <p class="section-lead"><strong>Not for sale.</strong> AI Qadam merch is funded by partners as a community contribution and distributed free by chapters at community events. Templates exist for production specs, not retail — see <a href="brand-use.html" style="color: var(--primary); border-bottom: 1px solid currentColor;">Brand Usage Policy</a>.</p>
+
+        <p class="subsection-meta">Approved formats</p>
+        <div class="streams-grid">
+          <div class="stream-card draft">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">T-shirt</h4>
+            <p class="stream-desc">Black or off-white only. Full lockup on the chest, centred, ~30% of front width. Back is bare or carries a single line in mono: <span class="codechip">#AIQadam</span> or the meetup hashtag.</p>
+            <div class="stream-uses"><span class="codechip">Cotton 180g+</span><span class="codechip">Screen print</span></div>
+          </div>
+          <div class="stream-card draft">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">Sticker — die-cut mark</h4>
+            <p class="stream-desc">The footprint silhouette only, in brand teal on a white peelable backing. 40mm or 70mm. No wordmark on small stickers — it becomes unreadable.</p>
+            <div class="stream-uses"><span class="codechip">Vinyl</span><span class="codechip">Glossy</span></div>
+          </div>
+          <div class="stream-card draft">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">Conference badge</h4>
+            <p class="stream-desc">A6 portrait. Full lockup top-centre. Name in Geist 36, role in Inter 14 muted, optional org in mono 11. Lanyard hole 5mm centred. One QR code bottom-right.</p>
+            <div class="stream-uses"><span class="codechip">300gsm matte</span></div>
+          </div>
+          <div class="stream-card draft">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">Poster · A2</h4>
+            <p class="stream-desc">Dark background. Hero in Geist 96. Event meta in mono. Lockup bottom-right, never bottom-centre. Use the photo bank for backgrounds — never AI-generated imagery.</p>
+            <div class="stream-uses"><span class="codechip">A2 · 420×594mm</span></div>
+          </div>
+        </div>
+
+        <div class="brand-card" style="margin-top: 32px; background: var(--card); border: 1px dashed var(--border);">
+          <p class="brand-positioning" style="font-size: 18px;">Print-ready files — request from your country lead.</p>
+          <p class="brand-tagline" style="font-style: normal;">CMYK PDF/X-1a originals for each template will land here once the first batches ship (T-shirts at Meetup #2). Until then: brand teal prints as Pantone <span class="codechip">7716 C</span> for safe colour-matching across suppliers.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer class="doc-footer">
+  <div class="container">
+    <div class="row">AI Qadam Brand Guidelines · v1 · last updated 2026-06-19</div>
+    <div class="row">
+      <a href="license.html">Code · MIT</a>
+      &nbsp;·&nbsp;
+      <a href="brand-use.html">Brand · © AI Qadam — usage policy</a>
+      &nbsp;·&nbsp;
+      <a href="license-content.html">Content · CC BY 4.0</a>
+    </div>
+    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:binali.rustamov@aiqadam.org">binali.rustamov@aiqadam.org</a></div>
+  </div>
+</footer>
+<script>
+  // Theme toggle ----------------------------------------------------
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('aiqadam-ds-theme', theme); } catch(e){}
+    const state = document.getElementById('theme-state');
+    if (state) state.textContent = theme;
+  }
+  (function init(){
+    const saved = localStorage.getItem('aiqadam-ds-theme');
+    if (saved === 'light' || saved === 'dark') applyTheme(saved);
+  })();
+  if (btn) btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+
+  // Resolve --token values onto swatches (only present on brand.html) ------
+  document.querySelectorAll('[data-token]').forEach(el => {
+    const t = el.getAttribute('data-token');
+    const v = getComputedStyle(root).getPropertyValue(t).trim();
+    if (v) el.textContent = v;
+  });
+</script>
+</body>
+</html>

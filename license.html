@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code · MIT Licence</title>
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="container app-header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark logo" aria-hidden="true">
+        <img src="brand/logo-mark.svg" alt="">
+      </span>
+      AI Qadam
+      <span class="brand-suffix">legal / v1</span>
+    </a>
+    <nav class="app-nav">
+      <a href="index.html">Overview</a>
+      <a href="brand.html">Brand</a>
+      <a href="system.html">Design system</a>
+      <a href="products.html">Products</a>
+    </nav>
+    <div class="header-right">
+      <button class="btn btn-ghost btn-icon" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<div class="container">
+  <section class="doc-hero">
+    <p class="section-eyebrow" style="color: var(--primary); margin-bottom: 12px;">Legal · Code</p>
+    <h1>Code · MIT Licence</h1>
+    <p class="tagline">The MIT licence covering the source code in this repository — CSS, HTML markup, JavaScript, and build scripts. Brand assets and editorial content are licensed separately.</p>
+    <div class="meta-row">
+      <span class="item"><a href="index.html" style="color: var(--primary);">← Guidelines overview</a></span>
+      <span class="item">Source · <a href="LICENSE" style="color: var(--foreground);"><span class="codechip">LICENSE</span></a></span>
+    </div>
+  </section>
+
+<article class="legal-doc plain"><pre>MIT License
+
+Copyright (c) 2026 AI Qadam Community
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+────────────────────────────────────────────────────────────────────────────
+
+Scope of this license
+─────────────────────
+This MIT license covers ONLY the source code in this repository:
+  * CSS files (tokens.css, components.css, docs.css, portal.css)
+  * HTML markup and JavaScript in *.html
+  * Build / tooling scripts
+
+It does NOT cover, and explicitly excludes:
+
+  1. The &quot;AI Qadam&quot; name, the footprint mark, the AI QADAM wordmark,
+     the four-dot motif, and any derivative of the brand identity.
+     These are subject to the Brand Usage Policy in BRAND-USE.md.
+
+  2. Documentation prose, copy, and editorial content (everything that
+     reads like a sentence in *.html / *.md). This is licensed under
+     CC BY 4.0 — see LICENSE-content.
+
+  3. Photography and any third-party assets, which retain their
+     original copyright and licensing.
+</pre></article>
+</div>
+
+<footer class="doc-footer">
+  <div class="container">
+    <div class="row">AI Qadam Brand Guidelines · v1 · last updated 2026-06-19</div>
+    <div class="row">
+      <a href="license.html">Code · MIT</a>
+      &nbsp;·&nbsp;
+      <a href="brand-use.html">Brand · © AI Qadam — usage policy</a>
+      &nbsp;·&nbsp;
+      <a href="license-content.html">Content · CC BY 4.0</a>
+    </div>
+    <div class="row"><a href="https://aiqadam.org">aiqadam.org</a> · <a href="mailto:binali.rustamov@aiqadam.org">binali.rustamov@aiqadam.org</a></div>
+  </div>
+</footer>
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('aiqadam-ds-theme', theme); } catch(e){}
+  }
+  (function init(){
+    const saved = localStorage.getItem('aiqadam-ds-theme');
+    if (saved === 'light' || saved === 'dark') applyTheme(saved);
+  })();
+  if (btn) btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+</script>
+</body>
+</html>

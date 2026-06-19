@@ -117,10 +117,11 @@
   border: 1px solid var(--border);
   border-radius: 6px;
 }
-.portal-hero img.logo {
+.portal-hero .logo {
   width: 110px;
   height: auto;
 }
+.portal-hero svg.logo { display: block; }
 
 /* ---------- Section/screen scaffolding ---------- */
 .set-header {
