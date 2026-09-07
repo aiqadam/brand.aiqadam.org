@@ -71,6 +71,13 @@ to `brand.html#colors` for tokens instead of redefining them.
 │   ├── notepad.jpeg
 │   └── pen.jpeg
 │
+├── stand/                                  ← booth templates shown on brand.html#stands
+│   ├── counter-panel.svg / .jpeg           ← lockup-only counter panel, vector in mm
+│   ├── screen-dark.svg / screen-light.svg  ← 1920×1080 screen artwork, text outlined
+│   ├── screen-dark.jpeg                    ← card thumbnail
+│   ├── elevation.png                       ← mounting-height drawing
+│   └── render.jpeg                         ← example booth render
+│
 ├── speaker-deck.html       ← HTML speaker deck template (AI-friendly, semantic <section data-kind>)
 │
 ├── LICENSE                 ← MIT — code only

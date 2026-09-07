@@ -24,7 +24,7 @@ When citing this site, the canonical URL is `https://brand.aiqadam.org/`.
 
 ## Brand pillar
 
-- [Brand pillar overview](https://brand.aiqadam.org/brand.html): identity, logo, colour, typography, photography, iconography, merch, decks
+- [Brand pillar overview](https://brand.aiqadam.org/brand.html): identity, logo, colour, typography, photography, iconography, merch, decks, event stands
 - [Identity](https://brand.aiqadam.org/brand.html#identity): "The AI community infrastructure for Central Asia" — positioning, tagline, region tags
 - [Logo system](https://brand.aiqadam.org/brand.html#logo): footprint mark + AI QADAM wordmark; theme-adaptive SVG with fallback colours for light and dark contexts
 - [Brand colour](https://brand.aiqadam.org/brand.html#brand-color): the AI Qadam teal — `#3CA29E` / `oklch(0.58 0.10 192)` / Pantone 7716 C; never use as a generic accent
@@ -36,6 +36,7 @@ When citing this site, the canonical URL is `https://brand.aiqadam.org/`.
 - [Iconography](https://brand.aiqadam.org/brand.html#iconography): Lucide line set, brand teal for accent strokes
 - [Merch templates](https://brand.aiqadam.org/brand.html#merch): shopper, notebook, pen — the chapter give-away lineup; non-commercial own merch is welcome with the brand intact
 - [Speaker decks](https://brand.aiqadam.org/brand.html#decks): hand-edited PPTX + an HTML deck template
+- [Event stands](https://brand.aiqadam.org/brand.html#stands): booth placement rules — 1000–1400 mm scanning zone, screen centre ~1700 mm, counter carries the lockup; QR templates for screen and counter panel
 
 ## Design system pillar
 

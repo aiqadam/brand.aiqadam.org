@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brand · AI Qadam Guidelines</title>
-<meta name="description" content="AI Qadam brand identity — logo, brand teal, typography, voice, photography, iconography, and merch templates. Pillar 1 of the AI Qadam Brand Guidelines.">
+<meta name="description" content="AI Qadam brand identity — logo, brand teal, typography, voice, photography, iconography, merch templates, and event stands. Pillar 1 of the AI Qadam Brand Guidelines.">
 <meta name="theme-color" content="#3CA29E">
 <link rel="canonical" href="https://brand.aiqadam.org/brand.html">
 
@@ -114,6 +114,11 @@
         <h3>Speaker decks</h3>
         <p>Hand-edit HTML template; generated PPTX for download.</p>
       </a>
+      <a href="#stands" class="page-overview-card">
+        <span class="num">08</span>
+        <h3>Event stands</h3>
+        <p>Booth placement rules, mounting heights, QR that actually scans.</p>
+      </a>
     </div>
   </section>
 
@@ -137,6 +142,7 @@
       <a href="#iconography" class="section">Iconography</a>
       <a href="#merch" class="section">Merch templates</a>
       <a href="#decks" class="section">Speaker decks</a>
+      <a href="#stands" class="section">Event stands</a>
     </aside>
 
     <main>
@@ -547,11 +553,63 @@
 
       </section>
 
+      <section class="docs-section" id="stands">
+        <p class="section-eyebrow">08 — Event stands</p>
+        <h2 class="section-title display">Backwalls, counters, screens.</h2>
+        <p class="section-lead">What a chapter puts on a conference booth. Venues hand you different furniture every time, so this section is deliberately about <strong>placement rules and artwork templates</strong>, not about one particular stand — the panel behind you and the counter in front of you do different jobs, and getting that wrong is what makes a booth invisible.</p>
+        <p class="section-lead">The one rule that decides everything else: <strong>a booth has exactly one call to action</strong>. Two QR codes on two surfaces means people stop to choose instead of scanning. Put the code where it can actually be reached, and let the other surface carry the identity.</p>
+
+        <p class="subsection-meta">Two surfaces, two jobs</p>
+        <div class="streams-grid">
+          <div class="stream-card live">
+            <img class="merch-photo" src="stand/screen-dark.jpeg" alt="AI Qadam booth screen artwork: the footprint mark, a large QR code centred on a black field, and the line t.me/ai_qadam_community below">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">Screen</h4>
+            <p class="stream-desc">The screen carries the action. QR centred and dominant, the mark small above it, one line of address below — nothing else competes. Sits at roughly eye level on the panel, which is the only place on a booth that reliably falls inside the scanning zone. Dark version is the default; the light one is for brightly-lit halls.</p>
+            <div class="stream-uses"><span class="codechip">1920×1080</span><span class="codechip">16:9</span><span class="codechip">Dark + light</span></div>
+            <a class="stream-link" href="stand/screen-dark.svg">Dark SVG →</a>
+            <a class="stream-link" href="stand/screen-light.svg">Light SVG →</a>
+          </div>
+          <div class="stream-card live">
+            <img class="merch-photo" src="stand/counter-panel.jpeg" alt="AI Qadam counter panel artwork: the full lockup centred on white, nothing else">
+            <span class="stream-status">Template</span>
+            <h4 class="stream-name">Counter panel</h4>
+            <p class="stream-desc">The counter carries the identity, and only that: the full lockup centred, roughly 47&nbsp;% of the panel width, on white. No QR, no tagline, no strapline. Centre it <em>optically</em>, a little above the geometric middle — a lockup has a word underneath and air above, so maths-centred always reads low.</p>
+            <div class="stream-uses"><span class="codechip">Vector, mm</span><span class="codechip">Lockup only</span></div>
+            <a class="stream-link" href="stand/counter-panel.svg">Panel SVG →</a>
+          </div>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 40px;">Mounting heights</p>
+        <p class="section-lead">Everything on a booth lives or dies by how high it sits. The numbers below are the transferable part — the furniture in the drawing is one venue's, yours will differ.</p>
+        <img class="merch-photo" src="stand/elevation.png" alt="Elevation drawing of a conference booth: panel and counter with dimension lines marking the screen centre at 1710 mm, screen bottom at 1335 mm, the lockup centre at 510 mm, and the comfortable scanning band between 1000 and 1400 mm" style="width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius-lg); margin-top: 16px; cursor: zoom-in;">
+
+        <div class="brand-card" style="margin-top: 24px;">
+          <p class="brand-tagline" style="font-style: normal;"><strong>1000–1400&nbsp;mm is the scanning zone.</strong> Below a metre people have to crouch; above 1.4&nbsp;m they have to reach over the counter. Anything you want scanned belongs in that band.</p>
+          <p class="brand-tagline" style="font-style: normal;"><strong>A standard counter cannot reach it.</strong> Counters run about 950&nbsp;mm tall, so the top of the front panel stops below the band. That is the reason the QR goes on the screen and the counter gets the lockup — not an aesthetic preference.</p>
+          <p class="brand-tagline" style="font-style: normal;"><strong>Screen centre around 1700&nbsp;mm.</strong> For a 55–65″ display that puts the middle of the picture at standing eye level and the QR comfortably inside the band.</p>
+        </div>
+
+        <p class="subsection-meta" style="margin-top: 40px;">QR codes</p>
+        <p class="section-lead">A printed QR that does not scan is a reprinted panel. Four rules cover nearly every failure we have seen.</p>
+        <div class="brand-card">
+          <p class="brand-tagline" style="font-style: normal;"><strong>Quiet zone: four modules, always.</strong> The empty margin around the code is part of the code. It is the first thing layouts eat and the most common reason a print fails to scan.</p>
+          <p class="brand-tagline" style="font-style: normal;"><strong>Size ≈ scanning distance ÷ 10.</strong> Read from 4&nbsp;m, print at 400&nbsp;mm. Then check it with a phone from that distance — not from arm's length in front of a monitor.</p>
+          <p class="brand-tagline" style="font-style: normal;"><strong>Error correction Q.</strong> On the payloads we use it costs nothing over level M — the symbol stays 29×29 — and buys 25&nbsp;% redundancy against a scratch, a glare spot, or a thumb.</p>
+          <p class="brand-tagline" style="font-style: normal;"><strong>Dark code on light ground. Never teal.</strong> The brand teal on white is about 3:1 — some phone cameras simply will not read it. <span class="codechip">#0A0A0A</span> on white is about 20:1. Teal belongs on the frame around the code, never on the modules.</p>
+        </div>
+
+        <div class="brand-card" style="margin-top: 32px; background: var(--card); border: 1px dashed var(--border);">
+          <p class="brand-positioning" style="font-size: 18px;">Running your own booth?</p>
+          <p class="brand-tagline" style="font-style: normal;">Take the templates and re-scale them to whatever the venue gives you — keep the lockup at roughly half the panel width, keep the QR inside the scanning band, keep one call to action. <strong>Generate your own QR</strong>: the code in these files points at the AI Qadam community chat, which is almost certainly not where you want your visitors to land. Logo straight from <span class="codechip">brand/logo-full.svg</span> — no redrawing, no recolouring. Brand teal prints as Pantone <span class="codechip">7716 C</span>.</p>
+        </div>
+      </section>
+
     </main>
   </div>
 </div>
 
-<dialog id="merch-lightbox" class="lightbox" aria-label="Merch photo">
+<dialog id="merch-lightbox" class="lightbox" aria-label="Full-size image">
   <button type="button" class="lightbox-close" data-close aria-label="Close">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
   </button>
